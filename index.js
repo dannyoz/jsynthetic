@@ -4,6 +4,12 @@ var js = express();
 var environment = process.env.NODE_ENV || 'development';
 var envPath = __dirname+'/environments/'+environment+'/';
 
+var routes     = require('./express/routing').routes;
+var staticDirs = require('./express/routing').staticDirs;
+var err404     = require('./express/routing').err404;
+var postRoutes = require('./express/post-routes');
+var getRoutes  = require('./express/get-routes');
+
 js.set('port', (process.env.PORT || 5000));
 
 js.use(express.static(__dirname + '/public'));
@@ -12,9 +18,16 @@ js.use(express.static(__dirname + '/public'));
 js.set('views', __dirname + '/views');
 js.set('view engine', 'ejs');
 
-js.get('/', function(req, res) {
-  res.setHeader('Content-Type', 'text/html');
-  res.sendFile(envPath+'views/index.html');
+// js.get('/', function(req, res) {
+//   res.setHeader('Content-Type', 'text/html');
+//   res.sendFile(envPath+'views/index.html');
+// });
+
+routes.forEach(function (path){
+    js.get(path,function(req,res){
+        res.setHeader('Content-Type', 'text/html');
+        res.sendfile(envPath+'views/index.html');
+    });
 });
 
 js.get('/env', function(req, res) {
