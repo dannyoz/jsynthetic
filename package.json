@@ -8,6 +8,9 @@
     "application",
     "openshift"
   ],
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": {
     "name": "OpenShift",
     "email": "ramr@example.org",
