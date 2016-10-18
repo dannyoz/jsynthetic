@@ -1,24 +1,28 @@
 var express = require('express');
-var app = express();
+var js = express();
 
-app.set('port', (process.env.PORT || 5000));
+var environment = process.env.NODE_ENV || 'development';
+var envPath = __dirname+'/environments/'+environment+'/';
 
-app.use(express.static(__dirname + '/public'));
+js.set('port', (process.env.PORT || 5000));
+
+js.use(express.static(__dirname + '/public'));
 
 // views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+js.set('views', __dirname + '/views');
+js.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
-  response.render('pages/index');
+js.get('/', function(req, res) {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(envPath+'views/index.html');
 });
 
-app.get('/env', function(request, response) {
-	response.status(200).send(process.env);
+js.get('/env', function(req, res) {
+	res.status(200).send(process.env);
 });
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+js.listen(js.get('port'), function() {
+  console.log('Node app is running on port', js.get('port'));
 });
 
 
