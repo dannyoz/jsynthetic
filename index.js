@@ -4,27 +4,42 @@ var js = express();
 var environment = process.env.NODE_ENV || 'development';
 var envPath = __dirname+'/environments/'+environment+'/';
 
-var routes     = require('./express/routing').routes;
-var staticDirs = require('./express/routing').staticDirs;
-var err404     = require('./express/routing').err404;
-var postRoutes = require('./express/post-routes');
-var getRoutes  = require('./express/get-routes');
+var routing = {
+	routes : [
+        '/',
+        '/art',
+        '/music',
+        '/about'
+    ],
+	staticDirs : [
+        'css', 
+        'img', 
+        'js',
+        'icons'
+    ],
+    err404 : function(req, res, next){
+
+        var environment  = (process.env.OPENSHIFT_CLOUD_DOMAIN) ? 'production' : 'development',
+            envPath      = './environments/'+environment+'/';
+
+        res.status(404);
+
+        if (req.accepts('html')) {
+            return res.sendfile(envPath+'views/404.html');
+        }
+
+        if (req.accepts('json')) {
+            return res.send({ error: 'Not found' });
+        }
+
+        res.type('txt').send('Not found');
+    }
+};
 
 js.set('port', (process.env.PORT || 5000));
 
-js.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
-js.set('views', __dirname + '/views');
-js.set('view engine', 'ejs');
-
-// js.get('/', function(req, res) {
-//   res.setHeader('Content-Type', 'text/html');
-//   res.sendFile(envPath+'views/index.html');
-// });
-
-routes.forEach(function (path){
-    js.get(path,function(req,res){
+routing.routes.forEach(function (path){
+    js.app.get(path,function(req,res){
         res.setHeader('Content-Type', 'text/html');
         res.sendfile(envPath+'views/index.html');
     });
@@ -39,70 +54,5 @@ js.listen(js.get('port'), function() {
 });
 
 
-// var jimmySynthetic = function() {
-
-//     var js = this;
-
-//     js.setupVariables = function() {
-
-//         js.port        = process.env.PORT || 5000,
-//         js.environment = process.env.NODE_ENV || 'development';
-//     };
-
-//     js.initializeServer = function() {
-
-//         js.app = express();
-
-//         var routes     = require('./express/routing').routes;
-//         var staticDirs = require('./express/routing').staticDirs;
-//         var err404     = require('./express/routing').err404;
-//         var postRoutes = require('./express/post-routes');
-//         var getRoutes  = require('./express/get-routes');
-//         var envPath    = __dirname+'/environments/'+js.environment+'/';
-
-//         routes.forEach(function (path){
-//             js.app.get(path,function(req,res){
-//                 res.setHeader('Content-Type', 'text/html');
-//                 res.sendfile(envPath+'views/index.html');
-//             });
-//         });
-
-//         staticDirs.forEach(function (dir){
-//             js.app.use('/'+dir, express.static(envPath+dir));
-//         });
-
-//         for (var route in postRoutes) {
-//             js.app.post(route, postRoutes[route]);
-//         };
-
-//         for (var route in getRoutes) {
-//             js.app.get(route, getRoutes[route]);
-//         };
-
-//         // for deberging
-//         js.app.get('/env', function(req, res) {
-// 					res.status(200).send(process.env);
-// 				});
-
-//         js.app.use(err404);
-
-//     };
-
-//     js.initialize = function() {
-//         js.setupVariables();
-//         js.initializeServer();
-//     };
-
-//     js.start = function() {
-//         js.app.listen(js.app.get('port'), function() {
-// 				  console.log('Node app is running on port', js.app.get('port'));
-// 				});
-//     };
-
-// };
-
-// var jsapp = new jimmySynthetic();
-// jsapp.initialize();
-// jsapp.start();
 
 
