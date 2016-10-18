@@ -1,0 +1,33 @@
+$distance: 100;
+$easing: $rush;
+$duration: 1.5s;
+$count: 9;
+
+@include slideIn("down",$distance,$easing,$duration,$count);
+@include slideIn("up",$distance,$easing,$duration,$count);
+
+.logo{
+
+	@include fullScreen;
+
+	.synthetic{
+
+		b{
+
+			$size: 8rem;
+			display: inline-block;
+			height: $size;
+			width: $size;
+			background-color: grey;
+		}
+
+		&__s, &__n, &__h, &__tt, &__i{
+			@extend .slide-in-up;
+		}
+
+		&__y, &__t, &__e, &__c{
+			@extend .slide-in-down;
+		}
+	}
+}
+
