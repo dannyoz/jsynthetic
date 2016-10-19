@@ -17,7 +17,7 @@ js.set('port', (process.env.PORT || 5000));
 routing.routes.forEach(function (path){
   js.app.get(path,function(req,res){
     res.setHeader('Content-Type', 'text/html');
-    res.sendfile(envPath+'views/index.html');
+    res.sendFile(envPath+'views/index.html');
   });
 });
 
