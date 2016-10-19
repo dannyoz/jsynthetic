@@ -13,7 +13,7 @@ module.exports = {
     ],
     err404 : function(req, res, next){
 
-        var environment  = (process.env.OPENSHIFT_CLOUD_DOMAIN) ? 'production' : 'development',
+        var environment  = process.env.NODE_ENV || 'development',
             envPath      = './environments/'+environment+'/';
 
         res.status(404);
