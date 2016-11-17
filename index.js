@@ -29,7 +29,3 @@ js.use(err404);
 js.listen(js.get('port'), function() {
   console.log('Jimmy app is running on port', js.get('port'));
 });
-
-
-
-

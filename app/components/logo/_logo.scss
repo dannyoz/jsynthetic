@@ -17,36 +17,35 @@ $slide-down-stops : (
 .slide-up {
 	@include animation("slide-up", $easing, $duration, $count, $delay);
 }
+
 @include transformKeyframes("slide-up", $slide-up-stops, "fadeIn", $defaultVendors);
 
 .slide-down {
 	@include animation("slide-down", $easing, $duration, $count, $delay);
 }
+
 @include transformKeyframes("slide-down", $slide-down-stops, "fadeIn", $defaultVendors);
 
-
-.logo{
+.logo {
 
 	@include fullScreen;
 
-	.synthetic{
+	.synthetic {
 
-		b{
-
+		b {
 			$size: 2rem;
 			display: inline-block;
 			height: $size;
 			width: $size;
-			background-color: #EEE;
+			//background-color: #222;
 		}
 
-		&__s, &__n, &__h, &__tt, &__i{
+		&__s, &__n, &__h, &__tt, &__i {
 			@extend .slide-up;
 		}
 
-		&__y, &__t, &__e, &__c{
+		&__y, &__t, &__e, &__c {
 			@extend .slide-down;
 		}
 	}
 }
-

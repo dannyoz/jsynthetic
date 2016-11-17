@@ -93,7 +93,7 @@
 			  	} else {
 			  		this.showErrors = true;
 			  	}
-		  	}
+		  	},
 	  	}
 	};
 </script>
