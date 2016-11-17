@@ -1,0 +1,51 @@
+$distance: 200;
+$easing: $handbrake;
+$duration: 1s;
+$count: 9;
+$delay: 0.08s;
+
+$slide-up-stops : (
+	0% : "translateY(#{$distance}px)",
+	100% : "translateY(0)"
+);
+
+$slide-down-stops : (
+	0% : "translateY(-#{$distance}px)",
+	100% : "translateY(0)"
+);
+
+.slide-up {
+	@include animation("slide-up", $easing, $duration, $count, $delay);
+}
+
+@include transformKeyframes("slide-up", $slide-up-stops, "fadeIn", $defaultVendors);
+
+.slide-down {
+	@include animation("slide-down", $easing, $duration, $count, $delay);
+}
+
+@include transformKeyframes("slide-down", $slide-down-stops, "fadeIn", $defaultVendors);
+
+.logo {
+
+	@include fullScreen;
+
+	.synthetic {
+
+		b {
+			$size: 2rem;
+			display: inline-block;
+			height: $size;
+			width: $size;
+			//background-color: #222;
+		}
+
+		&__s, &__n, &__h, &__tt, &__i {
+			@extend .slide-up;
+		}
+
+		&__y, &__t, &__e, &__c {
+			@extend .slide-down;
+		}
+	}
+}

@@ -1,0 +1,16 @@
+// Spice Vendor Prefix overides
+// --------------------
+$defaultVendors   : "";
+$animationVendors : "";
+$transformVendors : "";
+
+@include normalise;
+
+body {
+	// background-color:#333;
+	// @include verticalRhythm;
+}
+
+.centre {
+	@include centre;
+}
