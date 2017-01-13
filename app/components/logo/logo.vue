@@ -9,7 +9,7 @@
 				<b class="synthetic__t">T</b>
 				<b class="synthetic__h">H</b>
 				<b class="synthetic__e">E</b>
-				<b class="synthetic__tt">T</b>
+				<b class="synthetic__t">T</b>
 				<b class="synthetic__i">I</b>
 				<b class="synthetic__c">C</b>
 			</div>

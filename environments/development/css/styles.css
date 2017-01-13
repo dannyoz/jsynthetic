@@ -47,8 +47,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block; }
 
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 .justify {
@@ -131,11 +129,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: translateY(0); } }
 
 .logo {
+  opacity: 0;
   position: relative;
   width: 100%;
   height: 100vh; }
   .logo .synthetic b {
     display: inline-block;
     height: 2rem;
-    width: 2rem;
-    background-color: #EEE; }
+    width: 2rem; }

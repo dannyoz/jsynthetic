@@ -1,18 +1,14 @@
 <template>
-	<nav class="navigation">
+	<div class="discography">
 		<h1>{{title}}</h1>
-		<ul>
-			<li>Music</li>
-			<li>Artwork</li>
-		</ul>
-	</nav>
+	</div>
 </template>
 
 <script>
 	export default {
 	  data () {
 	    return {
-	      title: 'nav',
+	      title: 'discography',
 	    }
 	  },
 	};

@@ -4,6 +4,13 @@ $defaultVendors   : "";
 $animationVendors : "";
 $transformVendors : "";
 
-.centre{
+@include normalise;
+
+body {
+	// background-color:#000;
+	// @include verticalRhythm;
+}
+
+.centre {
 	@include centre;
 }
