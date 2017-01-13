@@ -28,6 +28,7 @@ $slide-down-stops : (
 
 .logo {
 
+	opacity:0;
 	@include fullScreen;
 
 	.synthetic {

@@ -129,6 +129,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: translateY(0); } }
 
 .logo {
+  opacity: 0;
   position: relative;
   width: 100%;
   height: 100vh; }
