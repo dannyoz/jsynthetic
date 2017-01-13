@@ -1,30 +1,24 @@
 <template>
-	<logo></logo>
-	<about></about>
-	<navigation></navigation>
-	<contact-form></contact-form>
-	<background></background>
-	<discography></discography>
-	<twitter></twitter>
+	<page-switcher :routes="routes" :current="current"></page-switcher>
+	<navigation :routes="routes" :current="current"></navigation>
 </template>
 
 <script>
-	import logo from './logo/logo.vue';
-	import about from './about/about.vue';
+	
+	import pageSwitcher from './page-switcher/page-switcher.vue';
 	import navigation from './navigation/navigation.vue';
-	import contactForm from './contact-form/contact-form.vue';
-	import background from './background/background.vue';
-	import discography from './discography/discography.vue';
-	import twitter from './twitter/twitter.vue';
+	const routes = require('../../express/routing').routes;
+
 	export default {
 	  components : {
-	  	logo,
-	  	about,
+	  	pageSwitcher,
 	  	navigation,
-	  	contactForm,
-	  	background,
-	  	discography,
-	  	twitter
-	  }
+	  },
+	  data () {
+	    return {
+	      routes: routes,
+        current: 'Home'
+	    }
+	  },
 	};
 </script>

@@ -35,7 +35,8 @@
     "twitter": "^1.4.0",
     "vue": "^1.0.26",
     "vueify": "^8.7.0",
-    "vueify-insert-css": "^1.0.0"
+    "vueify-insert-css": "^1.0.0",
+    "vuex": "^2.1.1"
   },
   "repository": {
     "type": "git",

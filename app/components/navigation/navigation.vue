@@ -1,19 +1,18 @@
 <template>
 	<nav class="navigation">
-		<h1>{{title}}</h1>
-		<ul>
-			<li>Music</li>
-			<li>Artwork</li>
-		</ul>
+		<button v-for="route in routes" @click="goToPath(route)">
+			<span>{{route.title}}</span>
+		</button>
 	</nav>
 </template>
 
 <script>
 	export default {
-	  data () {
-	    return {
-	      title: 'nav',
-	    }
-	  },
+	  props : ['routes', 'current'],
+	  methods : {
+	  	goToPath(route) {
+	  		console.log(route.path);
+	  	}
+	  }
 	};
 </script>

@@ -1,0 +1,13 @@
+[{
+	"title" : "Home",
+	"path" : "/"
+},{
+	"title" : "Discography",
+	"path" : "/discography"
+},{
+	"title" : "about",
+	"path" : "/about"
+},{
+	"title" : "contact",
+	"path" : "/contact"
+}]
