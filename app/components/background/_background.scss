@@ -4,6 +4,12 @@
 	overflow:hidden;
 	@include fitContainer;
 
+	.overlay{
+
+		background-color:rgba(12, 2, 31, 0.44);
+		@include fitContainer;
+	}
+
 	video{
 		@include centre;
 		&.portrait{

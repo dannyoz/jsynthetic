@@ -3,6 +3,7 @@
 		<video autoplay loop :class="orientation">
 			<source src="/media/vhs.mp4" type="video/mp4">
 		</video>
+		<div class="overlay"></div>
 	</div>
 </template>
 

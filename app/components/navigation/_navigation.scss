@@ -1,3 +1,5 @@
 .navigation{
-	//@include centre;
+
+	bottom:40px;
+	@include centre(x);
 }
