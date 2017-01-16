@@ -33,6 +33,12 @@ gulp.task('img',function(){
         .pipe(gulp.dest('./environments/production/'));
 });
 
+gulp.task('media',function(){
+    gulp.src('./app/media/**/*.*',{base : './app'})
+        .pipe(gulp.dest('./environments/development/'))
+        .pipe(gulp.dest('./environments/production/'));
+});
+
 gulp.task('browserify', function () {
     gulp.src('./app/app.js', {entry: true})
         .pipe(gbrowserify({
@@ -61,5 +67,5 @@ gulp.task('watch', function () {
     gulp.watch('app/**/*.jsx', ['frontEnd']);
 });
 
-gulp.task('frontEnd', ['browserify', 'sass', 'img', 'views']);
-gulp.task('default',  ['browserify', 'sass', 'img', 'views', 'watch', 'server']);
+gulp.task('frontEnd', ['browserify', 'sass', 'img', 'media', 'views']);
+gulp.task('default',  ['browserify', 'sass', 'img', 'media', 'views', 'watch', 'server']);

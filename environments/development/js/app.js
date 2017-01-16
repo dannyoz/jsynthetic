@@ -2,6 +2,44 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  data: function data() {
+    return {
+      orientation: ''
+    };
+  },
+  ready: function ready() {
+    this.reSize();
+  },
+
+  methods: {
+    reSize: function reSize() {
+      var height = window.innerHeight;
+      var width = window.innerWidth;
+      console.log(height / width);
+      var orientation = height / width > 0.42 ? 'portrait' : 'widescreen';
+      this.orientation = orientation;
+    }
+  }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"background\">\n\t<video autoplay=\"\" loop=\"\" :class=\"orientation\">\n\t\t<source src=\"/media/vhs.mp4\" type=\"video/mp4\">\n\t</video>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-9cd53b38", module.exports)
+  } else {
+    hotAPI.update("_v-9cd53b38", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":10,"vue-hot-reload-api":9}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
@@ -47,7 +85,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-908199f2", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../express/routing":6,"./navigation/navigation.vue":2,"./page-switcher/page-switcher.vue":3,"vue":9,"vue-hot-reload-api":8}],2:[function(require,module,exports){
+},{"../../express/routing":7,"./navigation/navigation.vue":3,"./page-switcher/page-switcher.vue":4,"vue":10,"vue-hot-reload-api":9}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -82,17 +120,27 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-cc9952b8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":9,"vue-hot-reload-api":8}],3:[function(require,module,exports){
+},{"vue":10,"vue-hot-reload-api":9}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
+
+var _background = require('../background/background.vue');
+
+var _background2 = _interopRequireDefault(_background);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = {
-  props: ['routes', 'current']
+	components: {
+		background: _background2.default
+	},
+	props: ['routes', 'current']
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"page-switcher\">\n\t<h1>{{current}}</h1>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"page-switcher\">\n\t<h1>{{current}}</h1>\n</div>\n<background></background>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -103,7 +151,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0e17f2a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":9,"vue-hot-reload-api":8}],4:[function(require,module,exports){
+},{"../background/background.vue":1,"vue":10,"vue-hot-reload-api":9}],5:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -123,7 +171,7 @@ new _vue2['default']({
   }
 });
 
-},{"./components/index.vue":1,"vue":9}],5:[function(require,module,exports){
+},{"./components/index.vue":2,"vue":10}],6:[function(require,module,exports){
 module.exports=[{
 	"title" : "Home",
 	"path" : "/"
@@ -138,13 +186,13 @@ module.exports=[{
 	"path" : "/contact"
 }]
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 (function (process){
 'use strict';
 
 module.exports = {
   routes: require('../app/shared/routing.json'),
-  staticDirs: ['css', 'img', 'js', 'icons'],
+  staticDirs: ['css', 'img', 'js', 'media', 'icons'],
   err404: function err404(req, res, next) {
 
     var environment = process.env.NODE_ENV || 'development',
@@ -165,7 +213,7 @@ module.exports = {
 };
 
 }).call(this,require("7YKIPe"))
-},{"../app/shared/routing.json":5,"7YKIPe":7}],7:[function(require,module,exports){
+},{"../app/shared/routing.json":6,"7YKIPe":8}],8:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -230,7 +278,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -531,7 +579,7 @@ function format (id) {
   return match ? match[0] : id
 }
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 (function (process){
 /*!
  * Vue.js v1.0.28
@@ -10772,4 +10820,4 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require("7YKIPe"))
-},{"7YKIPe":7}]},{},[4])
+},{"7YKIPe":8}]},{},[5])

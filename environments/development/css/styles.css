@@ -137,3 +137,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     display: inline-block;
     height: 2rem;
     width: 2rem; }
+
+.background {
+  background-color: #000;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px; }
+  .background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    .background video.portrait {
+      min-height: 100%; }
+    .background video.widescreen {
+      min-width: 100%; }

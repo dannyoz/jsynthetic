@@ -1,3 +1,16 @@
 .background{
-	//@include centre;
+	
+	background-color:#000;
+	overflow:hidden;
+	@include fitContainer;
+
+	video{
+		@include centre;
+		&.portrait{
+			min-height: 100%;
+		}
+		&.widescreen{
+			min-width:100%;
+		}
+	}
 }

@@ -4,6 +4,7 @@ module.exports = {
     'css', 
     'img', 
     'js',
+    'media',
     'icons'
   ],
   err404 : function(req, res, next){
