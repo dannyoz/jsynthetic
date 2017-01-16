@@ -1,6 +1,7 @@
 <template>
 	<div class="logo">
 		<div class="centre">
+			<img src="/img/logo.png" alt="Jimmy Synthetic">
 			<h1>{{title}}</h1>
 			<div class="synthetic">
 				<b class="synthetic__s">S</b>

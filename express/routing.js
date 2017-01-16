@@ -1,14 +1,10 @@
 module.exports = {
-  routes : [
-    '/',
-    '/art',
-    '/music',
-    '/about'
-  ],
+  routes : require('../app/shared/routing.json'),
 	staticDirs : [
     'css', 
     'img', 
     'js',
+    'media',
     'icons'
   ],
   err404 : function(req, res, next){

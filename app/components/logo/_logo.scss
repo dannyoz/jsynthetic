@@ -1,5 +1,5 @@
 $distance: 200;
-$easing: $handbrake;
+$easing: $bounce;
 $duration: 1s;
 $count: 9;
 $delay: 0.08s;
@@ -28,8 +28,14 @@ $slide-down-stops : (
 
 .logo {
 
-	opacity:0;
+	//opacity:0;
 	@include fullScreen;
+
+	img{
+
+		max-width: 100%;
+		@extend .slide-up;
+	}
 
 	.synthetic {
 

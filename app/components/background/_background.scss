@@ -1,3 +1,22 @@
 .background{
-	//@include centre;
+	//opacity:0;
+	background-color:#000;
+	overflow:hidden;
+	@include fitContainer(0,fixed);
+
+	.overlay{
+
+		background-color:rgba(12, 2, 31, 0.44);
+		@include fitContainer;
+	}
+
+	video{
+		@include centre;
+		&.portrait{
+			min-height: 100%;
+		}
+		&.widescreen{
+			min-width:100%;
+		}
+	}
 }

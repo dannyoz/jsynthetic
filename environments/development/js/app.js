@@ -18,12 +18,12 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-3af53b78", module.exports)
+    hotAPI.createRecord("_v-1ad56b00", module.exports)
   } else {
-    hotAPI.update("_v-3af53b78", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-1ad56b00", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":18,"vue-hot-reload-api":17}],2:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -32,23 +32,36 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
   data: function data() {
     return {
-      title: 'background'
+      orientation: ''
     };
+  },
+  ready: function ready() {
+    this.reSize();
+  },
+
+  methods: {
+    reSize: function reSize() {
+      var height = window.innerHeight;
+      var width = window.innerWidth;
+      console.log(height / width);
+      var orientation = height / width > 0.42 ? 'portrait' : 'widescreen';
+      this.orientation = orientation;
+    }
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"background\">\n\t<h1>{{title}}</h1>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"background\">\n\t<video autoplay=\"\" loop=\"\" :class=\"orientation\">\n\t\t<source src=\"/media/vhs.mp4\" type=\"video/mp4\">\n\t</video>\n\t<div class=\"overlay\"></div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-17530548", module.exports)
+    hotAPI.createRecord("_v-9cd53b38", module.exports)
   } else {
-    hotAPI.update("_v-17530548", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-9cd53b38", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":18,"vue-hot-reload-api":17}],3:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -144,12 +157,12 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-1ed8af7c", module.exports)
+    hotAPI.createRecord("_v-aee45ef8", module.exports)
   } else {
-    hotAPI.update("_v-1ed8af7c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-aee45ef8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../shared/api-service.js":10,"vue":18,"vue-hot-reload-api":17}],4:[function(require,module,exports){
+},{"../../shared/api-service.js":11,"vue":21,"vue-hot-reload-api":20}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -169,72 +182,61 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-2b493fb0", module.exports)
+    hotAPI.createRecord("_v-53752330", module.exports)
   } else {
-    hotAPI.update("_v-2b493fb0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-53752330", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":18,"vue-hot-reload-api":17}],5:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
-var _logo = require('./logo/logo.vue');
+var _pageSwitcher = require('./page-switcher/page-switcher.vue');
 
-var _logo2 = _interopRequireDefault(_logo);
-
-var _about = require('./about/about.vue');
-
-var _about2 = _interopRequireDefault(_about);
+var _pageSwitcher2 = _interopRequireDefault(_pageSwitcher);
 
 var _navigation = require('./navigation/navigation.vue');
 
 var _navigation2 = _interopRequireDefault(_navigation);
 
-var _contactForm = require('./contact-form/contact-form.vue');
-
-var _contactForm2 = _interopRequireDefault(_contactForm);
-
-var _background = require('./background/background.vue');
-
-var _background2 = _interopRequireDefault(_background);
-
-var _discography = require('./discography/discography.vue');
-
-var _discography2 = _interopRequireDefault(_discography);
-
-var _twitter = require('./twitter/twitter.vue');
-
-var _twitter2 = _interopRequireDefault(_twitter);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var routes = require('../../express/routing').routes;
+
 exports.default = {
-  components: {
-    logo: _logo2.default,
-    about: _about2.default,
-    navigation: _navigation2.default,
-    contactForm: _contactForm2.default,
-    background: _background2.default,
-    discography: _discography2.default,
-    twitter: _twitter2.default
-  }
+	components: {
+		pageSwitcher: _pageSwitcher2.default,
+		navigation: _navigation2.default
+	},
+	data: function data() {
+		return {
+			routes: routes,
+			current: location.pathname
+		};
+	},
+
+	events: {
+		'page': function page(path) {
+			this.current = path;
+		}
+	}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<logo></logo>\n<about></about>\n<navigation></navigation>\n<contact-form></contact-form>\n<background></background>\n<discography></discography>\n<twitter></twitter>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<page-switcher :routes=\"routes\" :current=\"current\"></page-switcher>\n<navigation :routes=\"routes\" :current=\"current\"></navigation>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-01758402", module.exports)
+    hotAPI.createRecord("_v-908199f2", module.exports)
   } else {
-    hotAPI.update("_v-01758402", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-908199f2", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"./about/about.vue":1,"./background/background.vue":2,"./contact-form/contact-form.vue":3,"./discography/discography.vue":4,"./logo/logo.vue":6,"./navigation/navigation.vue":7,"./twitter/twitter.vue":8,"vue":18,"vue-hot-reload-api":17}],6:[function(require,module,exports){
+},{"../../express/routing":13,"./navigation/navigation.vue":7,"./page-switcher/page-switcher.vue":8,"vue":21,"vue-hot-reload-api":20}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -248,85 +250,144 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"logo\">\n\t<div class=\"centre\">\n\t\t<h1>{{title}}</h1>\n\t\t<div class=\"synthetic\">\n\t\t\t<b class=\"synthetic__s\">S</b>\n\t\t\t<b class=\"synthetic__y\">Y</b>\n\t\t\t<b class=\"synthetic__n\">N</b>\n\t\t\t<b class=\"synthetic__t\">T</b>\n\t\t\t<b class=\"synthetic__h\">H</b>\n\t\t\t<b class=\"synthetic__e\">E</b>\n\t\t\t<b class=\"synthetic__t\">T</b>\n\t\t\t<b class=\"synthetic__i\">I</b>\n\t\t\t<b class=\"synthetic__c\">C</b>\n\t\t</div>\n\t</div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"logo\">\n\t<div class=\"centre\">\n\t\t<img src=\"/img/logo.png\" alt=\"Jimmy Synthetic\">\n\t\t<h1>{{title}}</h1>\n\t\t<div class=\"synthetic\">\n\t\t\t<b class=\"synthetic__s\">S</b>\n\t\t\t<b class=\"synthetic__y\">Y</b>\n\t\t\t<b class=\"synthetic__n\">N</b>\n\t\t\t<b class=\"synthetic__t\">T</b>\n\t\t\t<b class=\"synthetic__h\">H</b>\n\t\t\t<b class=\"synthetic__e\">E</b>\n\t\t\t<b class=\"synthetic__t\">T</b>\n\t\t\t<b class=\"synthetic__i\">I</b>\n\t\t\t<b class=\"synthetic__c\">C</b>\n\t\t</div>\n\t</div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-9aae8088", module.exports)
+    hotAPI.createRecord("_v-0390f0c4", module.exports)
   } else {
-    hotAPI.update("_v-9aae8088", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-0390f0c4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":18,"vue-hot-reload-api":17}],7:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 exports.default = {
-  data: function data() {
-    return {
-      title: 'nav'
-    };
-  }
+	props: ['routes', 'current'],
+	methods: {
+		goToPath: function goToPath(route) {
+			history.pushState(null, route.path, route.path);
+			this.$dispatch('page', route.path);
+		}
+	},
+	ready: function ready() {
+		var self = this;
+		window.onpopstate = function (event) {
+			self.goToPath({
+				path: location.pathname
+			});
+		};
+	}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<nav class=\"navigation\">\n\t<h1>{{title}}</h1>\n\t<ul>\n\t\t<li>Music</li>\n\t\t<li>Artwork</li>\n\t</ul>\n</nav>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<nav class=\"navigation\">\n\t<button v-for=\"route in routes\" @click=\"goToPath(route)\">\n\t\t<span>{{route.title}}</span>\n\t</button>\n</nav>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-47171cc8", module.exports)
+    hotAPI.createRecord("_v-cc9952b8", module.exports)
   } else {
-    hotAPI.update("_v-47171cc8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-cc9952b8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":18,"vue-hot-reload-api":17}],8:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _apiService = require('../../shared/api-service.js');
+var _background = require('../background/background.vue');
 
-var _apiService2 = _interopRequireDefault(_apiService);
+var _background2 = _interopRequireDefault(_background);
+
+var _scroller = require('./scroller.vue');
+
+var _scroller2 = _interopRequireDefault(_scroller);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Api = new _apiService2.default();
-
 exports.default = {
-	data: function data() {
-		return {
-			title: 'twitter',
-			tweets: []
-		};
+	components: {
+		background: _background2.default,
+		scroller: _scroller2.default
 	},
-	created: function created() {
-		var self = this;
-		Api.request('/gettweets').end(function (err, response) {
-			console.log(response.body);
-			self.tweets = response.body;
-		});
-	}
+	props: ['routes', 'current']
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"twitter\">\n\t<h1>{{title}}</h1>\n\t<ul>\n\t\t<li v-for=\"tweet in tweets\">{{tweet.text}}</li>\n\t</ul>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<background></background>\n<div class=\"page-switcher\">\n\t<scroller :template=\"'logo'\"></scroller>\n\t<scroller :template=\"'about'\"></scroller>\n\t<scroller :template=\"'discography'\"></scroller>\n\t<scroller :template=\"'contact'\"></scroller>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-35fb7978", module.exports)
+    hotAPI.createRecord("_v-0e17f2a4", module.exports)
   } else {
-    hotAPI.update("_v-35fb7978", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-0e17f2a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../shared/api-service.js":10,"vue":18,"vue-hot-reload-api":17}],9:[function(require,module,exports){
+},{"../background/background.vue":2,"./scroller.vue":9,"vue":21,"vue-hot-reload-api":20}],9:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _logo = require('../logo/logo.vue');
+
+var _logo2 = _interopRequireDefault(_logo);
+
+var _discography = require('../discography/discography.vue');
+
+var _discography2 = _interopRequireDefault(_discography);
+
+var _about = require('../about/about.vue');
+
+var _about2 = _interopRequireDefault(_about);
+
+var _contactForm = require('../contact-form/contact-form.vue');
+
+var _contactForm2 = _interopRequireDefault(_contactForm);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  components: {
+    logo: _logo2.default,
+    discography: _discography2.default,
+    about: _about2.default,
+    contact: _contactForm2.default
+  },
+  props: ['template'],
+  ready: function ready() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+
+  methods: {
+    handleScrol: function handleScrol(e) {
+      console.log(e);
+    }
+  }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<component :is=\"template\"></component>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-12947af6", module.exports)
+  } else {
+    hotAPI.update("_v-12947af6", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"../about/about.vue":1,"../contact-form/contact-form.vue":3,"../discography/discography.vue":4,"../logo/logo.vue":6,"vue":21,"vue-hot-reload-api":20}],10:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -346,7 +407,7 @@ new _vue2['default']({
   }
 });
 
-},{"./components/index.vue":5,"vue":18}],10:[function(require,module,exports){
+},{"./components/index.vue":5,"vue":21}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -386,7 +447,49 @@ var ApiService = (function () {
 exports['default'] = ApiService;
 module.exports = exports['default'];
 
-},{"superagent":13}],11:[function(require,module,exports){
+},{"superagent":16}],12:[function(require,module,exports){
+module.exports=[{
+	"title" : "Home",
+	"path" : "/"
+},{
+	"title" : "Discography",
+	"path" : "/discography"
+},{
+	"title" : "about",
+	"path" : "/about"
+},{
+	"title" : "contact",
+	"path" : "/contact"
+}]
+
+},{}],13:[function(require,module,exports){
+(function (process){
+'use strict';
+
+module.exports = {
+  routes: require('../app/shared/routing.json'),
+  staticDirs: ['css', 'img', 'js', 'media', 'icons'],
+  err404: function err404(req, res, next) {
+
+    var environment = process.env.NODE_ENV || 'development',
+        envPath = './environments/' + environment + '/';
+
+    res.status(404);
+
+    if (req.accepts('html')) {
+      return res.sendfile(envPath + 'views/404.html');
+    }
+
+    if (req.accepts('json')) {
+      return res.send({ error: 'Not found' });
+    }
+
+    res.type('txt').send('Not found');
+  }
+};
+
+}).call(this,require("7YKIPe"))
+},{"../app/shared/routing.json":12,"7YKIPe":15}],14:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -551,7 +654,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],12:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -616,7 +719,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],13:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /**
  * Root reference for iframes.
  */
@@ -1594,7 +1697,7 @@ request.put = function(url, data, fn){
   return req;
 };
 
-},{"./is-object":14,"./request":16,"./request-base":15,"emitter":11}],14:[function(require,module,exports){
+},{"./is-object":17,"./request":19,"./request-base":18,"emitter":14}],17:[function(require,module,exports){
 /**
  * Check if `obj` is an object.
  *
@@ -1609,7 +1712,7 @@ function isObject(obj) {
 
 module.exports = isObject;
 
-},{}],15:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * Module of mixed-in functions shared between node and client code
  */
@@ -1983,7 +2086,7 @@ exports.send = function(data){
   return this;
 };
 
-},{"./is-object":14}],16:[function(require,module,exports){
+},{"./is-object":17}],19:[function(require,module,exports){
 // The node and browser modules expose versions of this with the
 // appropriate constructor function bound as first argument
 /**
@@ -2017,7 +2120,7 @@ function request(RequestConstructor, method, url) {
 
 module.exports = request;
 
-},{}],17:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -2318,7 +2421,7 @@ function format (id) {
   return match ? match[0] : id
 }
 
-},{}],18:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 (function (process){
 /*!
  * Vue.js v1.0.28
@@ -12559,4 +12662,4 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require("7YKIPe"))
-},{"7YKIPe":12}]},{},[9])
+},{"7YKIPe":15}]},{},[10])
