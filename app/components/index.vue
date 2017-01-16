@@ -17,7 +17,7 @@
 	  data () {
 	    return {
 	      routes: routes,
-          current: 'home'
+          current: location.pathname
 	    }
 	  },
 	  events : {

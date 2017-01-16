@@ -25,7 +25,7 @@ exports.default = {
 	data: function data() {
 		return {
 			routes: routes,
-			current: 'home'
+			current: location.pathname
 		};
 	},
 
@@ -51,15 +51,24 @@ if (module.hot) {(function () {  module.hot.accept()
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 exports.default = {
-  props: ['routes', 'current'],
-  methods: {
-    goToPath: function goToPath(route) {
-      this.$dispatch('page', route.path);
-    }
-  }
+	props: ['routes', 'current'],
+	methods: {
+		goToPath: function goToPath(route) {
+			history.pushState(null, route.path, route.path);
+			this.$dispatch('page', route.path);
+		}
+	},
+	ready: function ready() {
+		var self = this;
+		window.onpopstate = function (event) {
+			self.goToPath({
+				path: location.pathname
+			});
+		};
+	}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<nav class=\"navigation\">\n\t<button v-for=\"route in routes\" @click=\"goToPath(route)\">\n\t\t<span>{{route.title}}</span>\n\t</button>\n</nav>\n"

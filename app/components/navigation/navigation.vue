@@ -11,8 +11,17 @@
 	  props : ['routes', 'current'],
 	  methods : {
 	  	goToPath(route) {
+	  		history.pushState(null, route.path, route.path);
 	  		this.$dispatch( 'page', route.path );
 	  	}
 	  },
+	  ready() {
+	  	var self = this;
+  		window.onpopstate = function(event) {
+				self.goToPath({
+					path: location.pathname
+				});
+			}
+	  }
 	};
 </script>
