@@ -23,7 +23,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-1ad56b00", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":20,"vue-hot-reload-api":19}],2:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -61,7 +61,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-9cd53b38", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":20,"vue-hot-reload-api":19}],3:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -162,7 +162,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-aee45ef8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../shared/api-service.js":10,"vue":20,"vue-hot-reload-api":19}],4:[function(require,module,exports){
+},{"../../shared/api-service.js":11,"vue":21,"vue-hot-reload-api":20}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -187,7 +187,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-53752330", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":20,"vue-hot-reload-api":19}],5:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -236,7 +236,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-908199f2", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../express/routing":12,"./navigation/navigation.vue":7,"./page-switcher/page-switcher.vue":8,"vue":20,"vue-hot-reload-api":19}],6:[function(require,module,exports){
+},{"../../express/routing":13,"./navigation/navigation.vue":7,"./page-switcher/page-switcher.vue":8,"vue":21,"vue-hot-reload-api":20}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -261,7 +261,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0390f0c4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":20,"vue-hot-reload-api":19}],7:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -296,7 +296,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-cc9952b8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":20,"vue-hot-reload-api":19}],8:[function(require,module,exports){
+},{"vue":21,"vue-hot-reload-api":20}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -306,6 +306,38 @@ Object.defineProperty(exports, "__esModule", {
 var _background = require('../background/background.vue');
 
 var _background2 = _interopRequireDefault(_background);
+
+var _scroller = require('./scroller.vue');
+
+var _scroller2 = _interopRequireDefault(_scroller);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+	components: {
+		background: _background2.default,
+		scroller: _scroller2.default
+	},
+	props: ['routes', 'current']
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<background></background>\n<div class=\"page-switcher\">\n\t<scroller :template=\"'logo'\"></scroller>\n\t<scroller :template=\"'about'\"></scroller>\n\t<scroller :template=\"'discography'\"></scroller>\n\t<scroller :template=\"'contact'\"></scroller>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-0e17f2a4", module.exports)
+  } else {
+    hotAPI.update("_v-0e17f2a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"../background/background.vue":2,"./scroller.vue":9,"vue":21,"vue-hot-reload-api":20}],9:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _logo = require('../logo/logo.vue');
 
@@ -326,28 +358,36 @@ var _contactForm2 = _interopRequireDefault(_contactForm);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-	components: {
-		background: _background2.default,
-		logo: _logo2.default,
-		discography: _discography2.default,
-		about: _about2.default,
-		contact: _contactForm2.default
-	},
-	props: ['routes', 'current']
+  components: {
+    logo: _logo2.default,
+    discography: _discography2.default,
+    about: _about2.default,
+    contact: _contactForm2.default
+  },
+  props: ['template'],
+  ready: function ready() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+
+  methods: {
+    handleScrol: function handleScrol(e) {
+      console.log(e);
+    }
+  }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<background></background>\n<div class=\"page-switcher\">\n\t<logo></logo>\n\t<discography></discography>\n\t<about></about>\n\t<contact></contact>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<component :is=\"template\"></component>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-0e17f2a4", module.exports)
+    hotAPI.createRecord("_v-12947af6", module.exports)
   } else {
-    hotAPI.update("_v-0e17f2a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-12947af6", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../about/about.vue":1,"../background/background.vue":2,"../contact-form/contact-form.vue":3,"../discography/discography.vue":4,"../logo/logo.vue":6,"vue":20,"vue-hot-reload-api":19}],9:[function(require,module,exports){
+},{"../about/about.vue":1,"../contact-form/contact-form.vue":3,"../discography/discography.vue":4,"../logo/logo.vue":6,"vue":21,"vue-hot-reload-api":20}],10:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -367,7 +407,7 @@ new _vue2['default']({
   }
 });
 
-},{"./components/index.vue":5,"vue":20}],10:[function(require,module,exports){
+},{"./components/index.vue":5,"vue":21}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -407,7 +447,7 @@ var ApiService = (function () {
 exports['default'] = ApiService;
 module.exports = exports['default'];
 
-},{"superagent":15}],11:[function(require,module,exports){
+},{"superagent":16}],12:[function(require,module,exports){
 module.exports=[{
 	"title" : "Home",
 	"path" : "/"
@@ -422,7 +462,7 @@ module.exports=[{
 	"path" : "/contact"
 }]
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -449,7 +489,7 @@ module.exports = {
 };
 
 }).call(this,require("7YKIPe"))
-},{"../app/shared/routing.json":11,"7YKIPe":14}],13:[function(require,module,exports){
+},{"../app/shared/routing.json":12,"7YKIPe":15}],14:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -614,7 +654,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -679,7 +719,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /**
  * Root reference for iframes.
  */
@@ -1657,7 +1697,7 @@ request.put = function(url, data, fn){
   return req;
 };
 
-},{"./is-object":16,"./request":18,"./request-base":17,"emitter":13}],16:[function(require,module,exports){
+},{"./is-object":17,"./request":19,"./request-base":18,"emitter":14}],17:[function(require,module,exports){
 /**
  * Check if `obj` is an object.
  *
@@ -1672,7 +1712,7 @@ function isObject(obj) {
 
 module.exports = isObject;
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * Module of mixed-in functions shared between node and client code
  */
@@ -2046,7 +2086,7 @@ exports.send = function(data){
   return this;
 };
 
-},{"./is-object":16}],18:[function(require,module,exports){
+},{"./is-object":17}],19:[function(require,module,exports){
 // The node and browser modules expose versions of this with the
 // appropriate constructor function bound as first argument
 /**
@@ -2080,7 +2120,7 @@ function request(RequestConstructor, method, url) {
 
 module.exports = request;
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -2381,7 +2421,7 @@ function format (id) {
   return match ? match[0] : id
 }
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 (function (process){
 /*!
  * Vue.js v1.0.28
@@ -12622,4 +12662,4 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require("7YKIPe"))
-},{"7YKIPe":14}]},{},[9])
+},{"7YKIPe":15}]},{},[10])
