@@ -2,7 +2,7 @@
 	
 	background-color:#000;
 	overflow:hidden;
-	@include fitContainer;
+	@include fitContainer(0,fixed);
 
 	.overlay{
 

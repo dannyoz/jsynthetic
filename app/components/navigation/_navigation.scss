@@ -1,5 +1,6 @@
 .navigation{
 
 	bottom:40px;
-	@include centre(x);
+	position: fixed;
+	width:100%;
 }
