@@ -11,8 +11,8 @@
 	  props : ['routes', 'current'],
 	  methods : {
 	  	goToPath(route) {
-	  		console.log(route.path);
+	  		this.$dispatch( 'page', route.path );
 	  	}
-	  }
+	  },
 	};
 </script>

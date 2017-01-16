@@ -17,8 +17,13 @@
 	  data () {
 	    return {
 	      routes: routes,
-        current: 'Home'
+          current: 'home'
 	    }
 	  },
+	  events : {
+		  'page'(path) {
+        this.current = path;
+		  }
+		}
 	};
 </script>
