@@ -16,11 +16,14 @@
 		},
 	  props : ['template'],
 	  ready() {
-	  	window.addEventListener('scroll', this.handleScroll);
+	  	const self = this;
+	  	window.addEventListener('scroll', function(e) {
+	  		self.handleScroll(e);
+	  	});
 	  },
 	  methods: {
-	  	handleScrol(e) {
-	  		console.log(e)
+	  	handleScroll(e) {
+	  		console.log('derp')
 	  	}
 	  }
 	};
