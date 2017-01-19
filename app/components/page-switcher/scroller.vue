@@ -1,5 +1,7 @@
 <template>
-	<component :is="template"></component>
+	<div v-el="template">
+		<component :is="template"></component>
+	</div>
 </template>
 
 <script>
@@ -23,7 +25,9 @@
 	  },
 	  methods: {
 	  	handleScroll(e) {
-	  		console.log('derp')
+	  		const body = document.getElementsByTagName('body');
+	  		let 	scrollPos = body[0].scrollTop;
+	  		console.log('top : ', this.$el.offsetTop, "| body scroll position : ", scrollPos);
 	  	}
 	  }
 	};
