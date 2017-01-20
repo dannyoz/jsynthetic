@@ -175,7 +175,7 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"discography\">\n\t<h1>{{title}}</h1>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"discography\">\n\t<h1>{{title}}</h1>\n\t<iframe style=\"border: 0; width: 350px; height: 470px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=2746288366/size=large/bgcol=333333/linkcol=9a64ff/tracklist=false/transparent=true/\" seamless=\"\"><a href=\"http://jimmy-synthetic.bandcamp.com/album/blast-from-the-past-ep\">Blast from the past EP by Jimmy Synthetic</a></iframe>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -320,7 +320,7 @@ exports.default = {
 	props: ['routes', 'current']
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<background></background>\n<div class=\"page-switcher\">\n\t<scroller :template=\"'logo'\"></scroller>\n\t<scroller :template=\"'about'\"></scroller>\n\t<scroller :template=\"'discography'\"></scroller>\n\t<scroller :template=\"'contact'\"></scroller>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<background></background>\n<div class=\"page-switcher\">\n\t<scroller :template=\"'logo'\"></scroller>\n\t<scroller :template=\"'discography'\"></scroller>\n\t<scroller :template=\"'about'\"></scroller>\n\t<scroller :template=\"'contact'\"></scroller>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -335,7 +335,7 @@ if (module.hot) {(function () {  module.hot.accept()
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
 var _logo = require('../logo/logo.vue');
@@ -356,31 +356,40 @@ var _contactForm2 = _interopRequireDefault(_contactForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var lastScrollTop = 0;
 exports.default = {
-  components: {
-    logo: _logo2.default,
-    discography: _discography2.default,
-    about: _about2.default,
-    contact: _contactForm2.default
-  },
-  props: ['template'],
-  ready: function ready() {
-    var self = this;
-    window.addEventListener('scroll', function (e) {
-      self.handleScroll(e);
-    });
-  },
+	data: function data() {
+		return {
+			current: true
+		};
+	},
 
-  methods: {
-    handleScroll: function handleScroll(e) {
-      var body = document.getElementsByTagName('body');
-      var scrollPos = body[0].scrollTop;
-      console.log('top : ', this.$el.offsetTop, "| body scroll position : ", scrollPos);
-    }
-  }
+	components: {
+		logo: _logo2.default,
+		discography: _discography2.default,
+		about: _about2.default,
+		contact: _contactForm2.default
+	},
+	props: ['template'],
+	ready: function ready() {
+		var self = this;
+		window.addEventListener('scroll', function (e) {
+			var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+			self.handleScroll(e, scrollPos);
+		});
+	},
+
+	methods: {
+		handleScroll: function handleScroll(e, scrollPos) {
+			var top = this.$el.offsetTop;
+			var bottom = top + this.$el.clientHeight;
+			this.current = scrollPos >= top && scrollPos <= bottom;
+			console.log(this.current);
+		}
+	}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-el=\"template\">\n\t<component :is=\"template\"></component>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-el=\"template\" :class=\"{ 'current' : current }\">\n\t<component :is=\"template\"></component>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

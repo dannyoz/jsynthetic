@@ -1,5 +1,5 @@
 <template>
-	<div v-el="template">
+	<div v-el="template" :class="{ 'current' : current }">
 		<component :is="template"></component>
 	</div>
 </template>
@@ -9,7 +9,13 @@
 	import discography from '../discography/discography.vue';
 	import about from '../about/about.vue';
 	import contact from '../contact-form/contact-form.vue';
+	var lastScrollTop = 0;
 	export default {
+		data () {
+	    return {
+        current: true
+	    }
+	  },
 		components : {
 			logo,
 			discography,
@@ -20,14 +26,16 @@
 	  ready() {
 	  	const self = this;
 	  	window.addEventListener('scroll', function(e) {
-	  		self.handleScroll(e);
+	  		let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+	  		self.handleScroll(e,scrollPos);
 	  	});
 	  },
 	  methods: {
-	  	handleScroll(e) {
-	  		const body = document.getElementsByTagName('body');
-	  		let 	scrollPos = body[0].scrollTop;
-	  		console.log('top : ', this.$el.offsetTop, "| body scroll position : ", scrollPos);
+	  	handleScroll(e, scrollPos) {
+	  		let top = this.$el.offsetTop;
+	  		let bottom = top + this.$el.clientHeight;
+	  		this.current = (scrollPos >= top && scrollPos <= bottom);
+	  		console.log(this.current);
 	  	}
 	  }
 	};
