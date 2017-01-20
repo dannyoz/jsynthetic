@@ -2,8 +2,8 @@
 	<background></background>
 	<div class="page-switcher">
 		<scroller :template="'logo'"></scroller>
-		<scroller :template="'about'"></scroller>
 		<scroller :template="'discography'"></scroller>
+		<scroller :template="'about'"></scroller>
 		<scroller :template="'contact'"></scroller>
 	</div>
 </template>

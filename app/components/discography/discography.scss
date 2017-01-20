@@ -1,3 +1,7 @@
 .discography{
 	@include fullScreen;
+
+	iframe {
+		opacity: 0;
+	}
 }

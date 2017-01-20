@@ -22,7 +22,6 @@
 	  	reSize() {
 	  		const height = window.innerHeight;
 	  		const width = window.innerWidth;
-	  		console.log(height/width);
 	  		const orientation = (height/width > 0.42) ? 'portrait' : 'widescreen';
 	  		this.orientation = orientation;
 	  	}

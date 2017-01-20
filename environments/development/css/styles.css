@@ -129,6 +129,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     transform: translateY(0); } }
 
 .logo {
+  opacity: 0;
   position: relative;
   width: 100%;
   height: 100vh; }
@@ -150,6 +151,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 100%; }
 
 .background {
+  opacity: 0;
   background-color: #000;
   overflow: hidden;
   position: fixed;
@@ -183,3 +185,5 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   position: relative;
   width: 100%;
   height: 100vh; }
+  .discography iframe {
+    opacity: 0; }
