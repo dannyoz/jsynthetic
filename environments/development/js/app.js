@@ -18,9 +18,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-1ad56b00", module.exports)
+    hotAPI.createRecord("_v-3af53b78", module.exports)
   } else {
-    hotAPI.update("_v-1ad56b00", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-3af53b78", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":21,"vue-hot-reload-api":20}],2:[function(require,module,exports){
@@ -55,9 +55,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-9cd53b38", module.exports)
+    hotAPI.createRecord("_v-17530548", module.exports)
   } else {
-    hotAPI.update("_v-9cd53b38", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-17530548", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":21,"vue-hot-reload-api":20}],3:[function(require,module,exports){
@@ -150,15 +150,15 @@ exports.default = {
 	}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"contact-form\">\n\t<h3>Get in touch</h3>\n\t<form v-if=\"!sending &amp;&amp; !sent\" @submit=\"sendMessage\">\n\t\t<input @keyup=\"validate('name')\" type=\"text\" name=\"name\" placeholder=\"Name\" v-model=\"name\">\n\t\t<p v-if=\"!validName &amp;&amp; showErrors\">{{nameMessage}}</p>\n\t\t<input @keyup=\"validate('email')\" type=\"text\" name=\"email\" placeholder=\"Email\" v-model=\"email\">\n\t\t<p v-if=\"!validEmail &amp;&amp; showErrors\">Please enter a valid email address</p>\n\t\t<textarea @keyup=\"validate('message')\" name=\"message\" placeholder=\"Message\" v-model=\"message\"></textarea>\n\t\t<p v-if=\"!validMessage &amp;&amp; showErrors\">{{messageMessage}}</p>\n\t\t<button type=\"submit\" :class=\"{'disabled': !validName &amp;&amp; !validEmail &amp;&amp; !validMessage}\">Submit</button>\n\t</form>\n\t<div v-if=\"sending\">\n\t\t<p>Loading</p>\n\t</div>\n\t<div v-if=\"sent\">\n\t\t<p>{{status}}</p>\n\t</div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"contact-form\">\n\t<div class=\"container\">\n\t\t<h3>Get in touch</h3>\n\t\t<form v-if=\"!sending &amp;&amp; !sent\" @submit=\"sendMessage\">\n\t\t\t<div class=\"text\">\n\t\t\t\t<input @keyup=\"validate('name')\" type=\"text\" name=\"name\" placeholder=\"Name\" v-model=\"name\">\n\t\t\t\t<p class=\"error\" v-if=\"!validName &amp;&amp; showErrors\">{{nameMessage}}</p>\n\t\t\t</div>\n\t\t\t<div class=\"text\">\n\t\t\t\t<input @keyup=\"validate('email')\" type=\"text\" name=\"email\" placeholder=\"Email\" v-model=\"email\">\n\t\t\t\t<p class=\"error\" v-if=\"!validEmail &amp;&amp; showErrors\">Please enter a valid email address</p>\n\t\t\t</div>\n\t\t\t<div class=\"textarea\">\n\t\t\t\t<textarea @keyup=\"validate('message')\" name=\"message\" placeholder=\"Message\" v-model=\"message\"></textarea>\n\t\t\t\t<p class=\"error\" v-if=\"!validMessage &amp;&amp; showErrors\">{{messageMessage}}</p>\n\t\t\t</div>\n\t\t\t<div class=\"btn-wrapper\">\n\t\t\t\t<button type=\"submit\" :class=\"{'disabled': !validName &amp;&amp; !validEmail &amp;&amp; !validMessage}\">Submit</button>\n\t\t\t</div>\n\t\t</form>\n\t\t<div v-if=\"sending\">\n\t\t\t<p>Loading</p>\n\t\t</div>\n\t\t<div v-if=\"sent\">\n\t\t\t<p>{{status}}</p>\n\t\t</div>\n\t</div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-aee45ef8", module.exports)
+    hotAPI.createRecord("_v-1ed8af7c", module.exports)
   } else {
-    hotAPI.update("_v-aee45ef8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-1ed8af7c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../../shared/api-service.js":11,"vue":21,"vue-hot-reload-api":20}],4:[function(require,module,exports){
@@ -181,9 +181,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-53752330", module.exports)
+    hotAPI.createRecord("_v-2b493fb0", module.exports)
   } else {
-    hotAPI.update("_v-53752330", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-2b493fb0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":21,"vue-hot-reload-api":20}],5:[function(require,module,exports){
@@ -230,9 +230,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-908199f2", module.exports)
+    hotAPI.createRecord("_v-01758402", module.exports)
   } else {
-    hotAPI.update("_v-908199f2", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-01758402", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../../express/routing":13,"./navigation/navigation.vue":7,"./page-switcher/page-switcher.vue":8,"vue":21,"vue-hot-reload-api":20}],6:[function(require,module,exports){
@@ -255,9 +255,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-0390f0c4", module.exports)
+    hotAPI.createRecord("_v-9aae8088", module.exports)
   } else {
-    hotAPI.update("_v-0390f0c4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-9aae8088", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":21,"vue-hot-reload-api":20}],7:[function(require,module,exports){
@@ -290,9 +290,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-cc9952b8", module.exports)
+    hotAPI.createRecord("_v-47171cc8", module.exports)
   } else {
-    hotAPI.update("_v-cc9952b8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-47171cc8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":21,"vue-hot-reload-api":20}],8:[function(require,module,exports){
@@ -326,9 +326,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-0e17f2a4", module.exports)
+    hotAPI.createRecord("_v-1d26f39c", module.exports)
   } else {
-    hotAPI.update("_v-0e17f2a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-1d26f39c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../background/background.vue":2,"./scroller.vue":9,"vue":21,"vue-hot-reload-api":20}],9:[function(require,module,exports){
@@ -395,9 +395,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-12947af6", module.exports)
+    hotAPI.createRecord("_v-0c18068d", module.exports)
   } else {
-    hotAPI.update("_v-12947af6", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-0c18068d", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../about/about.vue":1,"../contact-form/contact-form.vue":3,"../discography/discography.vue":4,"../logo/logo.vue":6,"vue":21,"vue-hot-reload-api":20}],10:[function(require,module,exports){

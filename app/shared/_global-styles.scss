@@ -4,6 +4,9 @@ $defaultVendors   : "";
 $animationVendors : "";
 $transformVendors : "";
 
+$primary: $col-river-blue;
+$secondary: $col-amethyst;
+
 @include normalise;
 
 body {
@@ -14,3 +17,5 @@ body {
 .centre {
 	@include centre;
 }
+
+@include containerClass(1280px);
