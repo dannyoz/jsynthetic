@@ -1,20 +1,30 @@
 <template>
 	<div class="contact-form">
-		<h3>Get in touch</h3>
-		<form v-if="!sending && !sent" @submit="sendMessage">
-			<input @keyup="validate('name')" type="text" name="name" placeholder="Name" v-model="name">
-			<p v-if="!validName && showErrors">{{nameMessage}}</p>
-			<input @keyup="validate('email')" type="text" name="email" placeholder="Email" v-model="email">
-			<p v-if="!validEmail && showErrors">Please enter a valid email address</p>
-			<textarea @keyup="validate('message')" name="message" placeholder="Message" v-model="message"></textarea>
-			<p v-if="!validMessage && showErrors">{{messageMessage}}</p>
-			<button type="submit" :class="{'disabled': !validName && !validEmail && !validMessage}">Submit</button>
-		</form>
-		<div v-if="sending">
-			<p>Loading</p>
-		</div>
-		<div v-if="sent">
-			<p>{{status}}</p>
+		<div class="container">
+			<h3>Get in touch</h3>
+			<form v-if="!sending && !sent" @submit="sendMessage">
+				<div class="text">
+					<input @keyup="validate('name')" type="text" name="name" placeholder="Name" v-model="name">
+					<p class="error" v-if="!validName && showErrors">{{nameMessage}}</p>
+				</div>
+				<div class="text">
+					<input @keyup="validate('email')" type="text" name="email" placeholder="Email" v-model="email">
+					<p class="error" v-if="!validEmail && showErrors">Please enter a valid email address</p>
+				</div>
+				<div class="textarea">
+					<textarea @keyup="validate('message')" name="message" placeholder="Message" v-model="message"></textarea>
+					<p class="error" v-if="!validMessage && showErrors">{{messageMessage}}</p>
+				</div>
+				<div class="btn-wrapper">
+					<button type="submit" :class="{'disabled': !validName && !validEmail && !validMessage}">Submit</button>
+				</div>
+			</form>
+			<div v-if="sending">
+				<p>Loading</p>
+			</div>
+			<div v-if="sent">
+				<p>{{status}}</p>
+			</div>
 		</div>
 	</div>
 </template>

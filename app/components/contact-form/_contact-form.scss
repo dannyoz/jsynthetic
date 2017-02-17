@@ -1,3 +1,73 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
 .contact-form{
 	@include fullScreen;
+
+	form{
+		@include clearFix;
+	}
+
+	.text{
+		@include gridColumns(6);
+
+		&:nth-child(2){
+			margin-right: 0;
+		}
+	}
+
+	.textarea, .btn-wrapper{
+
+		@include gridColumns(12);
+	}
+
+	.error{
+		color:red;
+		margin-bottom:20px;
+	}
+
+	input, textarea {
+
+		width:100%;
+		border-top:0;
+		border-left:0;
+		border-right:0;
+		border-bottom: 3px solid $primary;
+		padding:20px;
+		background: rgba(16, 17, 43, 0.5);
+		line-height: 24px;
+		margin-bottom:20px;
+		max-width:100%;
+		color: $primary;
+		outline: none;
+		@include fontSize(16px);
+
+		@include placeholder {
+		    font-style:italic;
+		    color: $primary;
+		    font-weight:100;
+		}
+	}
+
+	button{
+		
+		border:1px solid #FFF;
+		padding:10px 20px;
+		line-height: 24px;
+		outline:none;
+		text-transform: uppercase;
+		border-radius: 5px;
+		background: #ffffff; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ffffff 0%, #d8f0fc 50%, #4b5091 51%, #b6dffd 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  #ffffff 0%,#d8f0fc 50%,#4b5091 51%,#b6dffd 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  #ffffff 0%,#d8f0fc 50%,#4b5091 51%,#b6dffd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		color: white;
+		text-shadow: 0 0 10px rgba(0,0,0,1), 0 0 4px rgba(0,0,0,1);
+
+		@include fontSize(16px, bold);
+	}
 }
