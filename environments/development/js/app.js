@@ -23,7 +23,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-3af53b78", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":21,"vue-hot-reload-api":20}],2:[function(require,module,exports){
+},{"vue":23,"vue-hot-reload-api":22}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -60,7 +60,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-17530548", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":21,"vue-hot-reload-api":20}],3:[function(require,module,exports){
+},{"vue":23,"vue-hot-reload-api":22}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -161,7 +161,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-1ed8af7c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../shared/api-service.js":11,"vue":21,"vue-hot-reload-api":20}],4:[function(require,module,exports){
+},{"../../shared/api-service.js":12,"vue":23,"vue-hot-reload-api":22}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -175,7 +175,7 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"discography\">\n\t<h1>{{title}}</h1>\n\t<iframe style=\"border: 0; width: 350px; height: 470px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=2746288366/size=large/bgcol=333333/linkcol=9a64ff/tracklist=false/transparent=true/\" seamless=\"\"><a href=\"http://jimmy-synthetic.bandcamp.com/album/blast-from-the-past-ep\">Blast from the past EP by Jimmy Synthetic</a></iframe>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"discography\">\n\t<h1>{{title}}</h1>\n\t<!-- <iframe style=\"border: 0; width: 350px; height: 470px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=2746288366/size=large/bgcol=333333/linkcol=9a64ff/tracklist=false/transparent=true/\" seamless><a href=\"http://jimmy-synthetic.bandcamp.com/album/blast-from-the-past-ep\">Blast from the past EP by Jimmy Synthetic</a></iframe> -->\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -186,7 +186,59 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-2b493fb0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":21,"vue-hot-reload-api":20}],5:[function(require,module,exports){
+},{"vue":23,"vue-hot-reload-api":22}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+
+var loopTime = 3000;
+var glitchTime = 5000;
+exports.default = {
+  data: function data() {
+    return {
+      glitching: false
+    };
+  },
+
+  props: ['path', 'slices'],
+  attached: function attached() {
+    this.loop();
+  },
+
+  methods: {
+    loop: function loop() {
+      var _this = this;
+
+      setInterval(function () {
+        _this.glitch();
+      }, loopTime + glitchTime);
+    },
+    glitch: function glitch() {
+      var _this2 = this;
+
+      this.glitching = true;
+      setTimeout(function () {
+        _this2.glitching = false;
+      }, glitchTime);
+    }
+  }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"glitch\">\n\t<img class=\"spacer\" :src=\"path\" alt=\"Jimmy Synthetic\">\n\t<div class=\"slice-holder\">\n\t\t<div class=\"slice\" :class=\"{'glitching': glitching}\" :style=\"{\n\t\t\t\t'height': (100 / slices)+'%', \n\t\t\t\t'top' : (100 / slices) * i + '%',\n\t\t\t\t'background-image': 'url('+path+')',\n\t\t\t\t'background-position' : '0 ' + (100 / slices) * i + '%',\n\t\t\t}\" v-for=\"(n, i) in slices\"></div>\n\t</div>\n</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  if (!module.hot.data) {
+    hotAPI.createRecord("_v-580eb4fc", module.exports)
+  } else {
+    hotAPI.update("_v-580eb4fc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"vue":23,"vue-hot-reload-api":22}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -235,21 +287,26 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-01758402", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../express/routing":13,"./navigation/navigation.vue":7,"./page-switcher/page-switcher.vue":8,"vue":21,"vue-hot-reload-api":20}],6:[function(require,module,exports){
+},{"../../express/routing":15,"./navigation/navigation.vue":8,"./page-switcher/page-switcher.vue":9,"vue":23,"vue-hot-reload-api":22}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _glitch = require('../glitch/glitch.vue');
+
+var _glitch2 = _interopRequireDefault(_glitch);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = {
-  data: function data() {
-    return {
-      title: 'Jimmy'
-    };
+  components: {
+    glitch: _glitch2.default
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"logo\">\n\t<div class=\"centre\">\n\t\t<img src=\"/img/logo.png\" alt=\"Jimmy Synthetic\">\n\t\t<h1>{{title}}</h1>\n\t\t<div class=\"synthetic\">\n\t\t\t<b class=\"synthetic__s\">S</b>\n\t\t\t<b class=\"synthetic__y\">Y</b>\n\t\t\t<b class=\"synthetic__n\">N</b>\n\t\t\t<b class=\"synthetic__t\">T</b>\n\t\t\t<b class=\"synthetic__h\">H</b>\n\t\t\t<b class=\"synthetic__e\">E</b>\n\t\t\t<b class=\"synthetic__t\">T</b>\n\t\t\t<b class=\"synthetic__i\">I</b>\n\t\t\t<b class=\"synthetic__c\">C</b>\n\t\t</div>\n\t</div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"logo\">\n\t<div class=\"centre\">\n\t\t<glitch :path=\"'img/logo.png'\" :slices=\"50\"></glitch>\n\t</div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -260,19 +317,34 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-9aae8088", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":21,"vue-hot-reload-api":20}],7:[function(require,module,exports){
+},{"../glitch/glitch.vue":5,"vue":23,"vue-hot-reload-api":22}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _scrollTo = require('../../shared/scroll-to');
+
+var _scrollTo2 = _interopRequireDefault(_scrollTo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = {
     props: ['routes', 'current'],
     methods: {
         goToPath: function goToPath(route) {
+            var id = '#' + route.title.toLowerCase();
+            var elm = document.querySelector(id);
+            // scrollTo(elm, 600, 'easeInOutCubic', function(){
+            //     console.log('done');
+            // });
             history.pushState(null, route.path, route.path);
             this.$dispatch('page', route.path);
         }
+    },
+    done: function done() {
+        console.log('done');
     },
     ready: function ready() {
         var self = this;
@@ -284,7 +356,7 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<nav class=\"navigation\">\n    <button v-for=\"route in routes\" @click=\"goToPath(route)\">\n        <span>{{route.title}}</span>\n    </button>\n</nav>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<nav class=\"navigation\">\n    <nav>\n        <button v-for=\"route in routes\" @click=\"goToPath(route)\">\n            <span>{{route.title}}</span>\n        </button>\n    </nav>\n</nav>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -295,7 +367,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-47171cc8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":21,"vue-hot-reload-api":20}],8:[function(require,module,exports){
+},{"../../shared/scroll-to":14,"vue":23,"vue-hot-reload-api":22}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -320,7 +392,7 @@ exports.default = {
 	props: ['routes', 'current']
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<background></background>\n<div class=\"page-switcher\">\n\t<scroller :template=\"'logo'\"></scroller>\n\t<scroller :template=\"'discography'\"></scroller>\n\t<scroller :template=\"'about'\"></scroller>\n\t<scroller :template=\"'contact'\"></scroller>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<background></background>\n<div class=\"page-switcher\">\n\t<scroller :template=\"'home'\"></scroller>\n\t<scroller :template=\"'discography'\"></scroller>\n\t<scroller :template=\"'about'\"></scroller>\n\t<scroller :template=\"'contact'\"></scroller>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -331,7 +403,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-1d26f39c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../background/background.vue":2,"./scroller.vue":9,"vue":21,"vue-hot-reload-api":20}],9:[function(require,module,exports){
+},{"../background/background.vue":2,"./scroller.vue":10,"vue":23,"vue-hot-reload-api":22}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -365,18 +437,18 @@ exports.default = {
 	},
 
 	components: {
-		logo: _logo2.default,
+		home: _logo2.default,
 		discography: _discography2.default,
 		about: _about2.default,
 		contact: _contactForm2.default
 	},
 	props: ['template'],
 	ready: function ready() {
-		var self = this;
-		window.addEventListener('scroll', function (e) {
-			var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-			self.handleScroll(e, scrollPos);
-		});
+		// const self = this;
+		// window.addEventListener('scroll', function(e) {
+		// 	let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+		// 	self.handleScroll(e,scrollPos);
+		// });
 	},
 
 	methods: {
@@ -389,7 +461,7 @@ exports.default = {
 	}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-el=\"template\" :class=\"{ 'current' : current }\">\n\t<component :is=\"template\"></component>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div v-el=\"template\" :class=\"{ 'current' : current }\" :id=\"template\">\n\t<component :is=\"template\"></component>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -400,7 +472,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update("_v-0c18068d", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../about/about.vue":1,"../contact-form/contact-form.vue":3,"../discography/discography.vue":4,"../logo/logo.vue":6,"vue":21,"vue-hot-reload-api":20}],10:[function(require,module,exports){
+},{"../about/about.vue":1,"../contact-form/contact-form.vue":3,"../discography/discography.vue":4,"../logo/logo.vue":7,"vue":23,"vue-hot-reload-api":22}],11:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -420,7 +492,7 @@ new _vue2['default']({
   }
 });
 
-},{"./components/index.vue":5,"vue":21}],11:[function(require,module,exports){
+},{"./components/index.vue":6,"vue":23}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -460,7 +532,7 @@ var ApiService = (function () {
 exports['default'] = ApiService;
 module.exports = exports['default'];
 
-},{"superagent":16}],12:[function(require,module,exports){
+},{"superagent":18}],13:[function(require,module,exports){
 module.exports=[{
 	"title" : "Home",
 	"path" : "/"
@@ -468,14 +540,105 @@ module.exports=[{
 	"title" : "Discography",
 	"path" : "/discography"
 },{
-	"title" : "about",
+	"title" : "About",
 	"path" : "/about"
 },{
-	"title" : "contact",
+	"title" : "Contact",
 	"path" : "/contact"
 }]
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var scrollIt = function scrollIt(element, duration, easing, callback) {
+  if (duration === undefined) duration = 200;
+  if (easing === undefined) easing = 'linear';
+
+  // define timing functions
+  var easings = {
+    linear: function linear(t) {
+      return t;
+    },
+    easeInQuad: function easeInQuad(t) {
+      return t * t;
+    },
+    easeOutQuad: function easeOutQuad(t) {
+      return t * (2 - t);
+    },
+    easeInOutQuad: function easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    },
+    easeInCubic: function easeInCubic(t) {
+      return t * t * t;
+    },
+    easeOutCubic: function easeOutCubic(t) {
+      return --t * t * t + 1;
+    },
+    easeInOutCubic: function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+    },
+    easeInQuart: function easeInQuart(t) {
+      return t * t * t * t;
+    },
+    easeOutQuart: function easeOutQuart(t) {
+      return 1 - --t * t * t * t;
+    },
+    easeInOutQuart: function easeInOutQuart(t) {
+      return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
+    },
+    easeInQuint: function easeInQuint(t) {
+      return t * t * t * t * t;
+    },
+    easeOutQuint: function easeOutQuint(t) {
+      return 1 + --t * t * t * t * t;
+    },
+    easeInOutQuint: function easeInOutQuint(t) {
+      return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
+    }
+  };
+
+  // Returns document.documentElement for Chrome and Safari
+  // document.body for rest of the world
+  function checkBody() {
+    document.documentElement.scrollTop += 1;
+    var body = document.documentElement.scrollTop !== 0 ? document.documentElement : document.body;
+    document.documentElement.scrollTop -= 1;
+    return body;
+  }
+
+  var body = checkBody();
+  var start = body.scrollTop;
+  var startTime = Date.now();
+
+  // Height checks to prevent requestAnimationFrame from infinitely looping
+  // If the function tries to scroll below the visible document area
+  // it should only scroll to the bottom of the document
+  var documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+  var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+  var destination = documentHeight - element.offsetTop < windowHeight ? documentHeight - windowHeight : element.offsetTop;
+
+  function scroll() {
+    var now = Date.now();
+    var time = Math.min(1, (now - startTime) / duration);
+    var timeFunction = easings[easing](time);
+    body.scrollTop = timeFunction * (destination - start) + start;
+
+    if (body.scrollTop === destination) {
+      callback();
+      return;
+    }
+    requestAnimationFrame(scroll);
+  }
+  scroll();
+};
+
+exports['default'] = scrollIt;
+module.exports = exports['default'];
+
+},{}],15:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -502,7 +665,7 @@ module.exports = {
 };
 
 }).call(this,require("7YKIPe"))
-},{"../app/shared/routing.json":12,"7YKIPe":15}],14:[function(require,module,exports){
+},{"../app/shared/routing.json":13,"7YKIPe":17}],16:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -667,7 +830,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -732,7 +895,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * Root reference for iframes.
  */
@@ -1710,7 +1873,7 @@ request.put = function(url, data, fn){
   return req;
 };
 
-},{"./is-object":17,"./request":19,"./request-base":18,"emitter":14}],17:[function(require,module,exports){
+},{"./is-object":19,"./request":21,"./request-base":20,"emitter":16}],19:[function(require,module,exports){
 /**
  * Check if `obj` is an object.
  *
@@ -1725,7 +1888,7 @@ function isObject(obj) {
 
 module.exports = isObject;
 
-},{}],18:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 /**
  * Module of mixed-in functions shared between node and client code
  */
@@ -2099,7 +2262,7 @@ exports.send = function(data){
   return this;
 };
 
-},{"./is-object":17}],19:[function(require,module,exports){
+},{"./is-object":19}],21:[function(require,module,exports){
 // The node and browser modules expose versions of this with the
 // appropriate constructor function bound as first argument
 /**
@@ -2133,7 +2296,7 @@ function request(RequestConstructor, method, url) {
 
 module.exports = request;
 
-},{}],20:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -2434,7 +2597,7 @@ function format (id) {
   return match ? match[0] : id
 }
 
-},{}],21:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 (function (process){
 /*!
  * Vue.js v1.0.28
@@ -12675,4 +12838,4 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require("7YKIPe"))
-},{"7YKIPe":15}]},{},[10])
+},{"7YKIPe":17}]},{},[11])

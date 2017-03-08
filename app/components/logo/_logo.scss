@@ -33,7 +33,11 @@ $slide-down-stops : (
 	img{
 
 		max-width: 100%;
-		@extend .slide-up;
+		// @extend .slide-up;
+	}
+
+	.centre {
+		max-width: 70%;
 	}
 
 	.synthetic {

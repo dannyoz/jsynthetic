@@ -1,0 +1,60 @@
+$distance: 10;
+$easing: linear;
+$duration: 1s;
+$count: 50;
+$delay: 0.08s;
+
+$glitch-left-stops : (
+	0% : "translateX(0)",
+	10% : "translateX(#{$distance}px)",
+	20% : "translateX(0)",
+	30% : "translateX(#{$distance}px)",
+	40% : "translateX(0)",
+	50% : "translateX(#{$distance}px)",
+	60% : "translateX(0)",
+	70% : "translateX(#{$distance}px)",
+	80% : "translateX(0)",
+	90% : "translateX(#{$distance}px)",
+	100% : "translateX(0)"
+);
+
+$glitch-right-stops : (
+	0% : "translateX(0)",
+	10% : "translateX(-#{$distance}px)",
+	20% : "translateX(0)",
+	30% : "translateX(-#{$distance}px)",
+	40% : "translateX(0)",
+	50% : "translateX(-#{$distance}px)",
+	60% : "translateX(0)",
+	70% : "translateX(-#{$distance}px)",
+	80% : "translateX(0)",
+	90% : "translateX(-#{$distance}px)",
+	100% : "translateX(0)"
+);
+
+@include transformKeyframes("glitch-left", $glitch-left-stops, false, $defaultVendors);
+@include transformKeyframes("glitch-right", $glitch-right-stops, false, $defaultVendors);
+
+.glitch {
+
+	position: relative;
+	display: table;
+
+	.spacer {
+		opacity: 0;
+		display: block;
+	}
+
+	.slice {
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+		background-size: cover;
+	}
+
+	.glitching{
+		@include animation("glitch-left", $easing, $duration, $count, $delay);
+	}
+}
+
+

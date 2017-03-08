@@ -3,4 +3,22 @@
 	bottom:40px;
 	position: fixed;
 	width:100%;
+
+	nav {
+		text-align: center;
+
+		button {
+
+			outline: 0;
+			border: 1px solid $primary;
+			background-color: rgba(15, 2, 33, 0.74);
+			color: $primary;
+			margin: 0 0.3rem;
+			border-radius: 2rem;
+			cursor: pointer;
+			letter-spacing: 0.1rem;
+			text-transform: uppercase;
+			@include fontSize(12px, 600);
+		}
+	}
 }
