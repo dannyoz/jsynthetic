@@ -1,16 +1,17 @@
 .background{
+	//opacity: 0;
 	background-color:#000;
 	overflow:hidden;
 	@include fitContainer(0,fixed);
 
 	.overlay{
 
-		background-color:rgba(12, 2, 31, 0.5);
+		background-color:rgba(35, 0, 101, 0.14);
 		@include fitContainer;
 	}
 
 	video{
-		opacity:0;
+		//opacity:0;
 		@include centre;
 		&.portrait{
 			min-height: 100%;

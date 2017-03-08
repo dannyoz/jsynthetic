@@ -1,11 +1,11 @@
 <template>
-	<div v-el="template" :class="{ 'current' : current }">
+	<div v-el="template" :class="{ 'current' : current }" :id="template">
 		<component :is="template"></component>
 	</div>
 </template>
 
 <script>
-	import logo from '../logo/logo.vue';
+	import home from '../logo/logo.vue';
 	import discography from '../discography/discography.vue';
 	import about from '../about/about.vue';
 	import contact from '../contact-form/contact-form.vue';
@@ -17,18 +17,18 @@
 	    }
 	  },
 		components : {
-			logo,
+			home,
 			discography,
 			about,
 			contact
 		},
 	  props : ['template'],
 	  ready() {
-	  	const self = this;
-	  	window.addEventListener('scroll', function(e) {
-	  		let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-	  		self.handleScroll(e,scrollPos);
-	  	});
+	  	// const self = this;
+	  	// window.addEventListener('scroll', function(e) {
+	  	// 	let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+	  	// 	self.handleScroll(e,scrollPos);
+	  	// });
 	  },
 	  methods: {
 	  	handleScroll(e, scrollPos) {

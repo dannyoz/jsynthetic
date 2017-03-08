@@ -1,7 +1,7 @@
 <template>
 	<background></background>
 	<div class="page-switcher">
-		<scroller :template="'logo'"></scroller>
+		<scroller :template="'home'"></scroller>
 		<scroller :template="'discography'"></scroller>
 		<scroller :template="'about'"></scroller>
 		<scroller :template="'contact'"></scroller>
@@ -16,6 +16,6 @@
 			background,
 			scroller
 		},
-	  props : ['routes','current']
+	  	props : ['routes','current']
 	};
 </script>
