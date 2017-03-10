@@ -19,9 +19,9 @@ routes.forEach(function (route){
   });
 });
 
-for (var postRoute in posts) {
-    js.post(postRoute, posts[postRoute]);
-};
+// for (var postRoute in posts) {
+//     js.post(postRoute, posts[postRoute]);
+// };
 
 staticDirs.forEach(function (dir){
   js.use('/'+dir, express.static(envPath+dir));
