@@ -306,7 +306,7 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"logo\">\n\t<div class=\"centre\">\n\t\t<glitch :path=\"'img/logo.png'\" :slices=\"50\"></glitch>\n\t</div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"logo\">\n\t<div class=\"centre\">\n\t\t<div class=\"slide-up\">\n\t\t\t<glitch :path=\"'img/logo.png'\" :slices=\"50\"></glitch>\n\t\t</div>\n\t</div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

@@ -1,10 +1,12 @@
 <template>
 	<div class="logo">
 		<div class="centre">
-			<glitch 
-				:path="'img/logo.png'"
-				:slices="50"
-			></glitch>
+			<div class="slide-up">
+				<glitch 
+					:path="'img/logo.png'"
+					:slices="50"
+				></glitch>
+			</div>
 		</div>
 	</div>
 </template>
