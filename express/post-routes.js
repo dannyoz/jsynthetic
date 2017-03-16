@@ -6,8 +6,8 @@ routes['/sendmessage'] = function(req,res){
 	var transporter = nodemailer.createTransport({
 		service: 'Gmail',
 		auth: {
-			user: 'dan.osborne15@gmail.com',
-			pass: 'pooface1'
+			user: 'username',
+			pass: 'password'
 		}
 	});
 
