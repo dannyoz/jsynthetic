@@ -11,7 +11,7 @@ $secondary: $col-amethyst;
 @include googleFont('roboto', body button input);
 
 body {
-	//background-color:#000;
+	background-color:#000;
 	color:$primary;
 	@include verticalRhythm;
 }
