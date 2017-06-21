@@ -40,7 +40,8 @@ var canvas = (function () {
     function canvas(config) {
         _classCallCheck(this, canvas);
 
-        this.colour = config && config.colour ? config.colour : "#3b73af";
+        this.innerColour = config && config.innerColour ? config.innerColour : "#0099ff";
+        this.outerColour = config && config.outerColour ? config.outerColour : "#3619ea";
         this.lineWidth = config && config.lineWidth ? config.lineWidth : 0.3;
         this.spacing = config && config.spacing ? config.spacing : 40;
         this.charge = config && config.charge ? config.charge : 1000;
@@ -90,6 +91,11 @@ var canvas = (function () {
             function ticked() {
                 force.resume();
 
+                var gradient = context.createLinearGradient(0, 0, width, 0);
+                gradient.addColorStop("0", self.outerColour);
+                gradient.addColorStop("0.5", self.innerColour);
+                gradient.addColorStop("1.0", self.outerColour);
+
                 for (var i = 0, n = nodes.length; i < n; ++i) {
                     var node = nodes[i];
                     node.y += (node.cy - node.y) * self.gravity;
@@ -105,7 +111,7 @@ var canvas = (function () {
                     context.lineTo(link.target.x, link.target.y);
                 }
                 context.lineWidth = self.lineWidth;
-                context.strokeStyle = self.colour;
+                context.strokeStyle = gradient;
                 context.stroke();
 
                 context.beginPath();
@@ -117,9 +123,9 @@ var canvas = (function () {
                 context.lineWidth = self.lineWidth;
                 context.strokeStyle = "#000";
                 context.stroke();
-                context.fillStyle = self.colour;
+                context.fillStyle = gradient;
                 context.shadowBlur = 10;
-                context.shadowColor = self.colour;
+                context.shadowColor = gradient;
                 context.fill();
             }
         }
@@ -209,7 +215,7 @@ module.exports = exports["default"];
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+		value: true
 });
 
 var _background = require('./background');
@@ -219,20 +225,23 @@ var _background2 = _interopRequireDefault(_background);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-  data: function data() {
-    return {
-      orientation: ''
-    };
-  },
-  ready: function ready() {
-    var canvas = new _background2.default.canvas({
-      spacing: 55,
-      charge: 1000,
-      gravity: .01
-    });
-    canvas.draw();
-    console.log(canvas);
-  }
+		data: function data() {
+				return {
+						orientation: ''
+				};
+		},
+		ready: function ready() {
+				var canvas = new _background2.default.canvas({
+						innerColour: "#00c8ff",
+						outerColour: "#332a3a",
+						spacing: 44,
+						charge: 1000,
+						gravity: .01,
+						lineWidth: 0.3
+				});
+				canvas.draw();
+				console.log(canvas);
+		}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"background\">\n</div>\n"

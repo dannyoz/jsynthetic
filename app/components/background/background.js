@@ -3,7 +3,8 @@ const d3 = require("d3");
 class canvas {
 
     constructor(config) {
-        this.colour = (config && config.colour) ? config.colour : "#3b73af";
+        this.innerColour = (config && config.innerColour) ? config.innerColour : "#0099ff";
+        this.outerColour = (config && config.outerColour) ? config.outerColour : "#3619ea";
         this.lineWidth = (config && config.lineWidth) ? config.lineWidth : 0.3;
         this.spacing = (config && config.spacing) ? config.spacing : 40;
         this.charge = (config && config.charge) ? config.charge : 1000;
@@ -55,6 +56,12 @@ class canvas {
         function ticked() {
             force.resume();
 
+            var gradient = context.createLinearGradient(0,0,width,0);
+            gradient.addColorStop("0",self.outerColour);
+            gradient.addColorStop("0.5",self.innerColour);
+            gradient.addColorStop("1.0",self.outerColour);
+
+
             for (var i = 0, n = nodes.length; i < n; ++i) {
                 var node = nodes[i];
                 node.y += (node.cy - node.y) * self.gravity;
@@ -70,7 +77,7 @@ class canvas {
                 context.lineTo(link.target.x, link.target.y);
             }
             context.lineWidth = self.lineWidth;
-            context.strokeStyle = self.colour;
+            context.strokeStyle = gradient;
             context.stroke();
 
             context.beginPath();
@@ -82,9 +89,9 @@ class canvas {
             context.lineWidth = self.lineWidth;
             context.strokeStyle = "#000";
             context.stroke();
-            context.fillStyle = self.colour;
+            context.fillStyle = gradient;
             context.shadowBlur = 10;
-            context.shadowColor = self.colour;
+            context.shadowColor = gradient;
             context.fill();
         }
     }
