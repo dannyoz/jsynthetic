@@ -82,8 +82,8 @@ var canvas = (function () {
             var canvas = d3.select(".background").append("canvas").attr("width", width).attr("height", height);
 
             window.onmousemove = function (event) {
-                root.px = event.offsetX;
-                root.py = event.offsetY;
+                root.px = event.clientX;
+                root.py = event.clientY;
                 force.resume();
             };
             var context = canvas.node().getContext("2d");
