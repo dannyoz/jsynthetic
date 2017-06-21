@@ -1,14 +1,10 @@
 <template>
 	<div class="background">
-		<video autoplay loop :class="orientation">
-			<source src="/media/vhs.mp4" type="video/mp4">
-		</video>
-		<div class="overlay"></div>
 	</div>
 </template>
 
 <script>
-
+	import background from './background';
 	export default {
 	  data () {
 	    return {
@@ -16,15 +12,13 @@
 	    }
 	  },
 	  ready(){
-	  	this.reSize()
+			const canvas = new background.canvas({
+				spacing : 55,
+				charge: 1000,
+				gravity: .01,
+			});
+			canvas.draw();
+			console.log(canvas);
 	  },
-	  methods: {
-	  	reSize() {
-	  		const height = window.innerHeight;
-	  		const width = window.innerWidth;
-	  		const orientation = (height/width > 0.42) ? 'portrait' : 'widescreen';
-	  		this.orientation = orientation;
-	  	}
-	  }
 	};
 </script>
