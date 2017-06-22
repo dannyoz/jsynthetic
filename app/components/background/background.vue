@@ -15,6 +15,7 @@
 			const canvas = new background.canvas({
 				innerColour: "#00c8ff",
 				outerColour: "#332a3a",
+				midColour: "#6375ff",
 				spacing : 44,
 				charge: 1000,
 				gravity: .01,

@@ -42,6 +42,7 @@ var canvas = (function () {
 
         this.innerColour = config && config.innerColour ? config.innerColour : "#0099ff";
         this.outerColour = config && config.outerColour ? config.outerColour : "#3619ea";
+        this.midColour = config && config.midColour ? config.midColour : "magenta";
         this.lineWidth = config && config.lineWidth ? config.lineWidth : 0.3;
         this.spacing = config && config.spacing ? config.spacing : 40;
         this.charge = config && config.charge ? config.charge : 1000;
@@ -93,7 +94,9 @@ var canvas = (function () {
 
                 var gradient = context.createLinearGradient(0, 0, width, 0);
                 gradient.addColorStop("0", self.outerColour);
+                gradient.addColorStop("0.25", self.midColour);
                 gradient.addColorStop("0.5", self.innerColour);
+                gradient.addColorStop("0.75", self.midColour);
                 gradient.addColorStop("1.0", self.outerColour);
 
                 for (var i = 0, n = nodes.length; i < n; ++i) {
@@ -118,7 +121,7 @@ var canvas = (function () {
                 for (var i = 0, n = nodes.length; i < n; ++i) {
                     var node = nodes[i];
                     context.moveTo(node.x, node.y);
-                    context.arc(node.x, node.y, 1, 0, pi);
+                    context.arc(node.x, node.y, self.lineWidth * 3, 0, pi);
                 }
                 context.lineWidth = self.lineWidth;
                 context.strokeStyle = "#000";
@@ -234,6 +237,7 @@ exports.default = {
 				var canvas = new _background2.default.canvas({
 						innerColour: "#00c8ff",
 						outerColour: "#332a3a",
+						midColour: "#6375ff",
 						spacing: 44,
 						charge: 1000,
 						gravity: .01,
