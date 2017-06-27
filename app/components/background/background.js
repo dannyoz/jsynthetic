@@ -5,6 +5,7 @@ class canvas {
     constructor(config) {
         this.innerColour = (config && config.innerColour) ? config.innerColour : "#0099ff";
         this.outerColour = (config && config.outerColour) ? config.outerColour : "#3619ea";
+        this.midColour = (config && config.midColour) ? config.midColour : "magenta";
         this.lineWidth = (config && config.lineWidth) ? config.lineWidth : 0.3;
         this.spacing = (config && config.spacing) ? config.spacing : 40;
         this.charge = (config && config.charge) ? config.charge : 1000;
@@ -44,11 +45,11 @@ class canvas {
 
         var canvas = d3.select(".background").append("canvas")
             .attr("width", width)
-            .attr("height", height);
+            .attr("height", height)
 
         window.onmousemove = function(event) {
-            root.px = event.offsetX; 
-            root.py = event.offsetY;
+            root.px = event.clientX; 
+            root.py = event.clientY;
             force.resume();
         }
         var context = canvas.node().getContext("2d");
@@ -58,7 +59,9 @@ class canvas {
 
             var gradient = context.createLinearGradient(0,0,width,0);
             gradient.addColorStop("0",self.outerColour);
+            gradient.addColorStop("0.25",self.midColour);
             gradient.addColorStop("0.5",self.innerColour);
+            gradient.addColorStop("0.75",self.midColour);
             gradient.addColorStop("1.0",self.outerColour);
 
 
@@ -84,7 +87,7 @@ class canvas {
             for (var i = 0, n = nodes.length; i < n; ++i) {
                 var node = nodes[i];
                 context.moveTo(node.x, node.y);
-                context.arc(node.x, node.y, 1, 0, pi);
+                context.arc(node.x, node.y, self.lineWidth * 3, 0, pi);
             }
             context.lineWidth = self.lineWidth;
             context.strokeStyle = "#000";
