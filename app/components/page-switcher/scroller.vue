@@ -5,8 +5,7 @@
 </template>
 
 <script>
-	// import home from '../logo/logo.vue';
-	import home from '../soundcloud/soundcloud.vue';
+	import home from '../logo/logo.vue';
 	import discography from '../discography/discography.vue';
 	import about from '../about/about.vue';
 	import contact from '../contact-form/contact-form.vue';
