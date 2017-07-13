@@ -336,7 +336,8 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0; }
 
 .page-switcher {
-  opacity: 0; }
+  position: relative;
+  z-index: 9999; }
 
 @keyframes glitch-left {
   0% {

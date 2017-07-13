@@ -1,6 +1,8 @@
 .page-switcher{
-	opacity: 0;
+	//opacity: 0;
 	//@include centre;
+	position: relative;
+	z-index: 9999;
 	.current{
 		//background-color: red;
 	}
