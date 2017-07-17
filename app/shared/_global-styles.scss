@@ -8,11 +8,11 @@ $primary: $col-river-blue;
 $secondary: $col-amethyst;
 
 @include normalise;
-@include googleFont('roboto', body button input);
 
 body {
 	background-color:#000;
 	color:$primary;
+	font-family: "neuropol-x-light",sans-serif;
 	@include verticalRhythm;
 }
 
@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.3rem;
+	font-family: "ethnocentric",sans-serif;
 }
 
 .centre {

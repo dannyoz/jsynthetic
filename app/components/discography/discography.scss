@@ -1,7 +1,19 @@
 .discography{
 	@include fullScreen;
 
+	.albums-wrapper {
+		display: flex;
+		align-content: center;
+
+		.album {
+			margin: 1rem;
+		}
+	}
+
 	iframe {
-		opacity: 0;
+		// opacity: 0;
+		border: 0;
+		width: 350px;
+		height: 470px;
 	}
 }
