@@ -108,7 +108,12 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
-  font-family: "ethnocentric",sans-serif; }
+  font-weight: 100;
+  font-family: "ethnocentric",sans-serif;
+  color: #9acced;
+  background: -webkit-linear-gradient(white, #3498DB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
 
 .centre {
   position: absolute;
@@ -233,24 +238,29 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
     color: #3498DB;
     outline: none;
+    font-family: "neuropol-x-light",sans-serif;
     font-size: 16px;
     font-size: 1rem; }
     .contact-form input::-webkit-input-placeholder, .contact-form textarea::-webkit-input-placeholder {
       font-style: italic;
       color: #3498DB;
-      font-weight: 100; }
+      font-weight: 100;
+      font-family: "neuropol-x-light",sans-serif; }
     .contact-form input:-moz-placeholder, .contact-form textarea:-moz-placeholder {
       font-style: italic;
       color: #3498DB;
-      font-weight: 100; }
+      font-weight: 100;
+      font-family: "neuropol-x-light",sans-serif; }
     .contact-form input::-moz-placeholder, .contact-form textarea::-moz-placeholder {
       font-style: italic;
       color: #3498DB;
-      font-weight: 100; }
+      font-weight: 100;
+      font-family: "neuropol-x-light",sans-serif; }
     .contact-form input:-ms-input-placeholder, .contact-form textarea:-ms-input-placeholder {
       font-style: italic;
       color: #3498DB;
-      font-weight: 100; }
+      font-weight: 100;
+      font-family: "neuropol-x-light",sans-serif; }
   .contact-form button {
     border: 1px solid #FFF;
     padding: 10px 20px;
@@ -268,6 +278,7 @@ h1, h2, h3, h4, h5, h6 {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     color: white;
     text-shadow: 0 0 10px black, 0 0 4px black;
+    font-family: "neuropol-x-light",sans-serif;
     font-weight: bold;
     font-size: 16px;
     font-size: 1rem; }
