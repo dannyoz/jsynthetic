@@ -1,7 +1,7 @@
 var routes = {};
 var constants = require('../app/shared/constants.js');
 var discography = require('../app/shared/discography.json');
-var Twit = require('twit');
+// var Twit = require('twit');
 
 routes[`${constants.apiVersion}gettweets`] = function(req, res) {
 
