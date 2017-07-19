@@ -218,7 +218,7 @@ module.exports = exports["default"];
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-		value: true
+	value: true
 });
 
 var _background = require('./background');
@@ -228,24 +228,24 @@ var _background2 = _interopRequireDefault(_background);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-		data: function data() {
-				return {
-						orientation: ''
-				};
-		},
-		ready: function ready() {
-				var canvas = new _background2.default.canvas({
-						innerColour: "#00c8ff",
-						outerColour: "#332a3a",
-						midColour: "#6375ff",
-						spacing: 44,
-						charge: 1000,
-						gravity: .01,
-						lineWidth: 0.3
-				});
-				canvas.draw();
-				console.log(canvas);
-		}
+	data: function data() {
+		return {
+			orientation: ''
+		};
+	},
+	ready: function ready() {
+		var canvas = new _background2.default.canvas({
+			innerColour: "#00c8ff",
+			outerColour: "#332a3a",
+			midColour: "#6375ff",
+			spacing: 44,
+			charge: 1000,
+			gravity: .01,
+			lineWidth: 0.3
+		});
+		canvas.draw();
+		console.log(canvas);
+	}
 };
 if (module.exports.__esModule) module.exports = module.exports.default
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"background\">\n</div>\n"
@@ -617,6 +617,15 @@ exports.default = {
 		background: _background2.default,
 		scroller: _scroller2.default
 	},
+	ready: function ready() {
+		var self = this;
+		window.addEventListener('scroll', function (e) {
+			var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+			console.log(scrollPos);
+			// /self.handleScroll(e,scrollPos);
+		});
+	},
+
 	props: ['routes', 'current']
 };
 if (module.exports.__esModule) module.exports = module.exports.default
@@ -671,14 +680,6 @@ exports.default = {
 		contact: _contactForm2.default
 	},
 	props: ['template'],
-	ready: function ready() {
-		// const self = this;
-		// window.addEventListener('scroll', function(e) {
-		// 	let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-		// 	self.handleScroll(e,scrollPos);
-		// });
-	},
-
 	methods: {
 		handleScroll: function handleScroll(e, scrollPos) {
 			var top = this.$el.offsetTop;
@@ -719,7 +720,7 @@ new _vue2['default']({
     index: _componentsIndexVue2['default']
   }
 });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kYW4vcmVwb3MvanN5bnRoZXRpYy9hcHAvZmFrZV9iYzYxNWZlOC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O21CQUFnQixLQUFLOzs7O2tDQUNILHdCQUF3Qjs7OztBQUUxQyxxQkFBUTtBQUNOLElBQUUsRUFBRSxTQUFTO0FBQ2IsWUFBVSxFQUFFO0FBQ1gsU0FBSyxpQ0FBTztHQUNaO0NBQ0YsQ0FBQyxDQUFDIiwiZmlsZSI6Ii9Vc2Vycy9kYW4vcmVwb3MvanN5bnRoZXRpYy9hcHAvZmFrZV9iYzYxNWZlOC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBWdWUgZnJvbSAndnVlJztcbmltcG9ydCBpbmRleCBmcm9tICcuL2NvbXBvbmVudHMvaW5kZXgudnVlJztcblxubmV3IFZ1ZSh7XG4gIGVsOiAnI2pzLWFwcCcsXG4gIGNvbXBvbmVudHM6IHtcbiAgXHRpbmRleDogaW5kZXhcbiAgfVxufSk7XG4iXX0=
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kYW4vcmVwb3MvanN5bnRoZXRpYy9hcHAvZmFrZV8yNDM2ZTZhYS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O21CQUFnQixLQUFLOzs7O2tDQUNILHdCQUF3Qjs7OztBQUUxQyxxQkFBUTtBQUNOLElBQUUsRUFBRSxTQUFTO0FBQ2IsWUFBVSxFQUFFO0FBQ1gsU0FBSyxpQ0FBTztHQUNaO0NBQ0YsQ0FBQyxDQUFDIiwiZmlsZSI6Ii9Vc2Vycy9kYW4vcmVwb3MvanN5bnRoZXRpYy9hcHAvZmFrZV8yNDM2ZTZhYS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBWdWUgZnJvbSAndnVlJztcbmltcG9ydCBpbmRleCBmcm9tICcuL2NvbXBvbmVudHMvaW5kZXgudnVlJztcblxubmV3IFZ1ZSh7XG4gIGVsOiAnI2pzLWFwcCcsXG4gIGNvbXBvbmVudHM6IHtcbiAgXHRpbmRleDogaW5kZXhcbiAgfVxufSk7XG4iXX0=
 },{"./components/index.vue":7,"vue":26}],13:[function(require,module,exports){
 'use strict';
 

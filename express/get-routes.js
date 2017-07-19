@@ -1,19 +1,20 @@
-var Twitter = require('twitter');
 var routes = {};
 var constants = require('../app/shared/constants.js');
 var discography = require('../app/shared/discography.json');
+var Twit = require('twit');
 
 routes[`${constants.apiVersion}gettweets`] = function(req, res) {
 
-	var client = new Twitter({
-		consumer_key: '',
-		consumer_secret: '',
-		access_token_key: '',
-  		access_token_secret: ''
+	var T = new Twit({
+		consumer_key: 'HeJgeUj5uwXbbcjKIKtGWOExD',
+		consumer_secret: 'JXKKqNJwsBBUvTWnnnA7wZDncLLShEUEjxCT6AHBFf3cWTG1SU',
+		access_token: '779231838883745792-4AvOuwVP945WFuTKBkXu97GFC3kNAYq',
+  		access_token_secret: '4IzYVxRlQmQArpPBOqNAddZ6GNUZg9f36Psj0XC7sjjpv',
+		timeout_ms: 60*1000,
 	});
 	 
 	var params = {screen_name: 'JimmySynthetic'};
-	client.get('statuses/user_timeline', params, function(error, tweets, response) {
+	T.get('statuses/user_timeline', params, function(error, tweets, response) {
 	  	if (!error) {
 	    	res.status(200).send(tweets);
 	  	} else {

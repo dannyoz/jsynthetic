@@ -23,13 +23,6 @@
 			contact
 		},
 	  props : ['template'],
-	  ready() {
-	  	// const self = this;
-	  	// window.addEventListener('scroll', function(e) {
-	  	// 	let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-	  	// 	self.handleScroll(e,scrollPos);
-	  	// });
-	  },
 	  methods: {
 	  	handleScroll(e, scrollPos) {
 	  		let top = this.$el.offsetTop;
