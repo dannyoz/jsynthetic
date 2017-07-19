@@ -1,15 +1,15 @@
 var routes = {};
 var constants = require('../app/shared/constants.js');
 var discography = require('../app/shared/discography.json');
-// var Twit = require('twit');
+var Twit = require('twit');
 
 routes[`${constants.apiVersion}gettweets`] = function(req, res) {
 
 	var T = new Twit({
-		consumer_key: 'HeJgeUj5uwXbbcjKIKtGWOExD',
-		consumer_secret: 'JXKKqNJwsBBUvTWnnnA7wZDncLLShEUEjxCT6AHBFf3cWTG1SU',
-		access_token: '779231838883745792-4AvOuwVP945WFuTKBkXu97GFC3kNAYq',
-  		access_token_secret: '4IzYVxRlQmQArpPBOqNAddZ6GNUZg9f36Psj0XC7sjjpv',
+		consumer_key: process.env.TWITTER_CONSUMER_KEY,
+		consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+		access_token: process.env.TWITTER_ACCESS_TOKEN,
+  		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 		timeout_ms: 60*1000,
 	});
 	 

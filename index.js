@@ -1,5 +1,6 @@
 var express = require('express');
 const js = express();
+const env = require('dotenv').config();
 
 const environment = process.env.NODE_ENV || 'development';
 const envPath     = __dirname+'/environments/'+environment+'/';
