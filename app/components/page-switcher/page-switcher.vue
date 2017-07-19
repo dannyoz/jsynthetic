@@ -17,12 +17,12 @@
 			scroller
 		},
 		ready() {
-		  	const self = this;
-		  	window.addEventListener('scroll', function(e) {
-		  		let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-		  		console.log(scrollPos);
-		  		// /self.handleScroll(e,scrollPos);
-		  	});
+		  	// const self = this;
+		  	// window.addEventListener('scroll', function(e) {
+		  	// 	let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+		  	// 	console.log(scrollPos);
+		  	// 	// /self.handleScroll(e,scrollPos);
+		  	// });
 		},
 	  	props : ['routes','current']
 	};

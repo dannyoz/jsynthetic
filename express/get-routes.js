@@ -5,7 +5,7 @@ var Twit = require('twit');
 
 routes[`${constants.apiVersion}gettweets`] = function(req, res) {
 
-	var T = new Twit({
+	var twitterFeed = new Twit({
 		consumer_key: process.env.TWITTER_CONSUMER_KEY,
 		consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
 		access_token: process.env.TWITTER_ACCESS_TOKEN,
@@ -13,8 +13,14 @@ routes[`${constants.apiVersion}gettweets`] = function(req, res) {
 		timeout_ms: 60*1000,
 	});
 	 
-	var params = {screen_name: 'JimmySynthetic'};
-	T.get('statuses/user_timeline', params, function(error, tweets, response) {
+	var params = {
+		screen_name: 'JimmySynthetic',
+		exclude_replies: true,
+		include_rts: false,
+		count: 20
+	};
+
+	twitterFeed.get('statuses/user_timeline', params, function(error, tweets, response) {
 	  	if (!error) {
 	    	res.status(200).send(tweets);
 	  	} else {
