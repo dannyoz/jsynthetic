@@ -10,39 +10,20 @@
 </template>
 
 <script>
+	import apiService from '../../shared/api-service';
+	const ApiService = new apiService();
 	export default {
-	  data () {
-	    return {
-	      title: 'discography',
-				albums: [
-					{
-						id: '2746288366',
-						link: 'http://jimmy-synthetic.bandcamp.com/album/blast-from-the-past-ep',
-						title: 'Blast from the past EP by Jimmy Synthetic',
-					}, {
-						id: '99843590',
-						link: 'https://perturbator.bandcamp.com/',
-						title: 'Pert',
-					}, {
-						id: '3352492535',
-						link: 'https://perturbator.bandcamp.com/',
-						title: 'Pert',
-					}, {
-						id: '2746288366',
-						link: 'http://jimmy-synthetic.bandcamp.com/album/blast-from-the-past-ep',
-						title: 'Blast from the past EP by Jimmy Synthetic',
-					}, {
-						id: '99843590',
-						link: 'https://perturbator.bandcamp.com/',
-						title: 'Pert',
-					}, {
-						id: '3352492535',
-						link: 'https://perturbator.bandcamp.com/',
-						title: 'Pert',
-					}
-				]
-	    }
-	  },
+		data () {
+			return {
+				title: 'discography',
+				albums: []
+			}
+		},
+		ready() {
+			ApiService.request('discography').then((res) => {
+				this.albums = res.body;
+			});
+		},
 		methods: {
 			albumSrc(album) {
 				const domain = 'https://bandcamp.com/EmbeddedPlayer/';

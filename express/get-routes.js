@@ -1,8 +1,9 @@
 var Twitter = require('twitter');
 var routes = {};
-const version = '/api/v1/';
+var constants = require('../app/shared/constants.js');
+var discography = require('../app/shared/discography.json');
 
-routes[`${version}gettweets`] = function(req, res) {
+routes[`${constants.apiVersion}gettweets`] = function(req, res) {
 
 	var client = new Twitter({
 		consumer_key: '',
@@ -22,10 +23,8 @@ routes[`${version}gettweets`] = function(req, res) {
 };
 
 
-routes[`${version}discography`] = function(req, res) {
-	res.status(200).json({
-		ok: true
-	});
+routes[`${constants.apiVersion}discography`] = function(req, res) {
+	res.status(200).json(discography);
 };
 
 module.exports = routes;
