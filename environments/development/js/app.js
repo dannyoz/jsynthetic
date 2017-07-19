@@ -12,7 +12,7 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"about\">\n\t<h1>{{title}}</h1>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"about\">\n\t<h1>{{title}}</h1>\n\t<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit corporis dolorum est, eligendi. Expedita, ex inventore natus, cumque possimus numquam atque ab magni obcaecati ut! Assumenda quo doloremque porro magnam. Reprehenderit ullam, nihil corrupti, dignissimos animi quidem maxime aperiam voluptas dolores libero veritatis quisquam quod voluptatum labore soluta, voluptatem expedita sunt. Iure nam distinctio quos in sapiente, asperiores quisquam officiis quasi numquam voluptate ut quibusdam sed dolorem, unde, maxime voluptates nobis. Maxime voluptatum quo commodi quod dolorem non labore praesentium!</p>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

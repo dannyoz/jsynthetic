@@ -44,12 +44,14 @@
 		max-width:100%;
 		color: $primary;
 		outline: none;
+		font-family: "neuropol-x-light",sans-serif;
 		@include fontSize(16px);
 
 		@include placeholder {
 		    font-style:italic;
 		    color: $primary;
 		    font-weight:100;
+			font-family: "neuropol-x-light",sans-serif;
 		}
 	}
 
@@ -67,6 +69,7 @@
 		background: linear-gradient(to bottom,  #ffffff 0%,#d8f0fc 50%,#4b5091 51%,#b6dffd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		color: white;
 		text-shadow: 0 0 10px rgba(0,0,0,1), 0 0 4px rgba(0,0,0,1);
+		font-family: "neuropol-x-light",sans-serif;
 
 		@include fontSize(16px, bold);
 	}
