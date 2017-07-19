@@ -6,12 +6,12 @@
 <script>
 	import background from './background';
 	export default {
-	  data () {
-	    return {
-	      orientation: '',
-	    }
-	  },
-	  ready(){
+		data () {
+		    return {
+		      	orientation: '',
+		    }
+		},
+		ready(){
 			const canvas = new background.canvas({
 				innerColour: "#00c8ff",
 				outerColour: "#332a3a",
@@ -23,6 +23,6 @@
 			});
 			canvas.draw();
 			console.log(canvas);
-	  },
+	  	},
 	};
 </script>
