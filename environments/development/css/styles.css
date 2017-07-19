@@ -115,6 +115,38 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
+p.columns {
+  column-count: 1;
+  column-gap: 0; }
+  @media (min-width: 40rem) {
+    p.columns {
+      column-count: 2;
+      column-gap: 1em; } }
+  @media (min-width: 80rem) {
+    p.columns {
+      column-count: 3;
+      column-gap: 1em; } }
+  @media (min-width: 120rem) {
+    p.columns {
+      column-count: 4;
+      column-gap: 1em; } }
+  @media (min-width: 160rem) {
+    p.columns {
+      column-count: 5;
+      column-gap: 1em; } }
+  @media (min-width: 200rem) {
+    p.columns {
+      column-count: 6;
+      column-gap: 1em; } }
+  @media (min-width: 240rem) {
+    p.columns {
+      column-count: 7;
+      column-gap: 1em; } }
+  @media (min-width: 280rem) {
+    p.columns {
+      column-count: 8;
+      column-gap: 1em; } }
+
 .centre {
   position: absolute;
   top: 50%;
@@ -320,12 +352,19 @@ h1, h2, h3, h4, h5, h6 {
 .discography {
   position: relative;
   width: 100%;
-  height: 100vh; }
+  min-height: 100vh; }
   .discography .albums-wrapper {
     display: flex;
-    align-content: center; }
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 1%; }
     .discography .albums-wrapper .album {
       margin: 1rem; }
+    .discography .albums-wrapper:after {
+      content: "";
+      display: table;
+      clear: both; }
   .discography iframe {
     border: 0;
     width: 350px;

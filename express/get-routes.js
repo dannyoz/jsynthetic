@@ -1,7 +1,8 @@
 var Twitter = require('twitter');
 var routes = {};
+const version = '/api/v1/';
 
-routes['/gettweets'] = function(req, res){
+routes[`${version}gettweets`] = function(req, res) {
 
 	var client = new Twitter({
 		consumer_key: '',
@@ -17,6 +18,13 @@ routes['/gettweets'] = function(req, res){
 	  	} else {
 	  		res.status(500).send(error);
 	  	};
+	});
+};
+
+
+routes[`${version}discography`] = function(req, res) {
+	res.status(200).json({
+		ok: true
 	});
 };
 

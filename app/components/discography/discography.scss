@@ -1,13 +1,20 @@
 .discography{
-	@include fullScreen;
+	// @include fullScreen;
+
+	position: relative;
+    width: 100%;
+    min-height: 100vh;
 
 	.albums-wrapper {
 		display: flex;
-		align-content: center;
+		align-items: center;
+    	justify-content: center;
+    	flex-wrap: wrap;
 
 		.album {
 			margin: 1rem;
 		}
+		@include clearFix;
 	}
 
 	iframe {

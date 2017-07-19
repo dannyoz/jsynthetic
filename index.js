@@ -4,6 +4,7 @@ const js = express();
 const environment = process.env.NODE_ENV || 'development';
 const envPath     = __dirname+'/environments/'+environment+'/';
 const routes      = require(__dirname+'/express/routing').routes;
+const getRoutes   = require(__dirname+'/express/get-routes');
 const staticDirs  = require(__dirname+'/express/routing').staticDirs;
 const err404      = require(__dirname+'/express/routing').err404;
 
@@ -23,6 +24,10 @@ staticDirs.forEach(function (dir){
 js.get('/env', function(req, res) {
 	res.status(200).send(process.env);
 });
+
+for (var route in getRoutes) {
+	js.get(route, getRoutes[route]);
+}
 
 js.use(err404);
 
