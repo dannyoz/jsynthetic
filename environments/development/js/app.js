@@ -12,15 +12,15 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"about\">\n\t<h1>{{title}}</h1>\n\t<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit corporis dolorum est, eligendi. Expedita, ex inventore natus, cumque possimus numquam atque ab magni obcaecati ut! Assumenda quo doloremque porro magnam. Reprehenderit ullam, nihil corrupti, dignissimos animi quidem maxime aperiam voluptas dolores libero veritatis quisquam quod voluptatum labore soluta, voluptatem expedita sunt. Iure nam distinctio quos in sapiente, asperiores quisquam officiis quasi numquam voluptate ut quibusdam sed dolorem, unde, maxime voluptates nobis. Maxime voluptatum quo commodi quod dolorem non labore praesentium!</p>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"about container\">\n\t<h1>{{title}}</h1>\n\t<p class=\"columns\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit corporis dolorum est, eligendi. Expedita, ex inventore natus, cumque possimus numquam atque ab magni obcaecati ut! Assumenda quo doloremque porro magnam. Reprehenderit ullam, nihil corrupti, dignissimos animi quidem maxime aperiam voluptas dolores libero veritatis quisquam quod voluptatum labore soluta, voluptatem expedita sunt. Iure nam distinctio quos in sapiente, asperiores quisquam officiis quasi numquam voluptate ut quibusdam sed dolorem, unde, maxime voluptates nobis. Maxime voluptatum quo commodi quod dolorem non labore praesentium!</p>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-3af53b78", module.exports)
+    hotAPI.createRecord("_v-1ad56b00", module.exports)
   } else {
-    hotAPI.update("_v-3af53b78", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-1ad56b00", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":25,"vue-hot-reload-api":24}],2:[function(require,module,exports){
@@ -55,7 +55,7 @@ var canvas = (function () {
             var self = this;
 
             var width = window.innerWidth,
-                height = window.innerHeight,
+                height = window.innerHeight * 1.5,
                 pi = 2 * Math.PI;
 
             var sample = this.poissonDiscSampler(width, height, self.spacing),
@@ -254,9 +254,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-17530548", module.exports)
+    hotAPI.createRecord("_v-9cd53b38", module.exports)
   } else {
-    hotAPI.update("_v-17530548", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-9cd53b38", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"./background":2,"vue":25,"vue-hot-reload-api":24}],4:[function(require,module,exports){
@@ -355,9 +355,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-1ed8af7c", module.exports)
+    hotAPI.createRecord("_v-aee45ef8", module.exports)
   } else {
-    hotAPI.update("_v-1ed8af7c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-aee45ef8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../../shared/api-service.js":13,"vue":25,"vue-hot-reload-api":24}],5:[function(require,module,exports){
@@ -371,6 +371,18 @@ exports.default = {
 		return {
 			title: 'discography',
 			albums: [{
+				id: '2746288366',
+				link: 'http://jimmy-synthetic.bandcamp.com/album/blast-from-the-past-ep',
+				title: 'Blast from the past EP by Jimmy Synthetic'
+			}, {
+				id: '99843590',
+				link: 'https://perturbator.bandcamp.com/',
+				title: 'Pert'
+			}, {
+				id: '3352492535',
+				link: 'https://perturbator.bandcamp.com/',
+				title: 'Pert'
+			}, {
 				id: '2746288366',
 				link: 'http://jimmy-synthetic.bandcamp.com/album/blast-from-the-past-ep',
 				title: 'Blast from the past EP by Jimmy Synthetic'
@@ -406,9 +418,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-2b493fb0", module.exports)
+    hotAPI.createRecord("_v-53752330", module.exports)
   } else {
-    hotAPI.update("_v-2b493fb0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-53752330", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":25,"vue-hot-reload-api":24}],6:[function(require,module,exports){
@@ -458,9 +470,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-580eb4fc", module.exports)
+    hotAPI.createRecord("_v-b031bbf8", module.exports)
   } else {
-    hotAPI.update("_v-580eb4fc", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-b031bbf8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":25,"vue-hot-reload-api":24}],7:[function(require,module,exports){
@@ -507,9 +519,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-01758402", module.exports)
+    hotAPI.createRecord("_v-908199f2", module.exports)
   } else {
-    hotAPI.update("_v-01758402", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-908199f2", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../../express/routing":16,"./navigation/navigation.vue":9,"./page-switcher/page-switcher.vue":10,"vue":25,"vue-hot-reload-api":24}],8:[function(require,module,exports){
@@ -537,9 +549,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-9aae8088", module.exports)
+    hotAPI.createRecord("_v-0390f0c4", module.exports)
   } else {
-    hotAPI.update("_v-9aae8088", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-0390f0c4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../glitch/glitch.vue":6,"vue":25,"vue-hot-reload-api":24}],9:[function(require,module,exports){
@@ -587,9 +599,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-47171cc8", module.exports)
+    hotAPI.createRecord("_v-cc9952b8", module.exports)
   } else {
-    hotAPI.update("_v-47171cc8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-cc9952b8", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../../shared/scroll-to":15,"vue":25,"vue-hot-reload-api":24}],10:[function(require,module,exports){
@@ -623,9 +635,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-1d26f39c", module.exports)
+    hotAPI.createRecord("_v-0e17f2a4", module.exports)
   } else {
-    hotAPI.update("_v-1d26f39c", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-0e17f2a4", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../background/background.vue":3,"./scroller.vue":11,"vue":25,"vue-hot-reload-api":24}],11:[function(require,module,exports){
@@ -692,9 +704,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-0c18068d", module.exports)
+    hotAPI.createRecord("_v-12947af6", module.exports)
   } else {
-    hotAPI.update("_v-0c18068d", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-12947af6", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"../about/about.vue":1,"../contact-form/contact-form.vue":4,"../discography/discography.vue":5,"../logo/logo.vue":8,"vue":25,"vue-hot-reload-api":24}],12:[function(require,module,exports){

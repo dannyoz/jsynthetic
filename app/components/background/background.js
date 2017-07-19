@@ -16,7 +16,7 @@ class canvas {
         const self = this;
         
         var width = window.innerWidth,
-            height = window.innerHeight,
+            height = window.innerHeight * 1.5,
             pi = 2 * Math.PI;
 
         var sample = this.poissonDiscSampler(width, height, self.spacing),
