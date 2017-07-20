@@ -1,13 +1,14 @@
 var nodemailer = require('nodemailer');
 var routes = {};
+var constants = require('../app/shared/constants.js');
 
-routes['/sendmessage'] = function(req,res){
+routes[`${constants.apiVersion}sendmessage`] = function(req,res){
 
 	var transporter = nodemailer.createTransport({
 		service: 'Gmail',
 		auth: {
-			user: 'username',
-			pass: 'password'
+			user: process.env.EMAIL_USER,
+			pass: process.env.EMAIL_PASSWORD
 		}
 	});
 

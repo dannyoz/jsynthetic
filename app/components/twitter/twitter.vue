@@ -1,8 +1,9 @@
 <template>
 	<div class="twitter">
-		<ul>
-			<li v-for="tweet in tweets">{{{parseTweet(tweet).html}}}</li>
-		</ul>
+		<div @click="gotoTweet(tweet)" class="tweet" v-for="tweet in tweets">
+			{{{parseTweet(tweet).html}}}
+			<span class="tweet__quoted" v-if="tweet.is_quote_status">{{{parseTweet(tweet.quoted_status).html}}}</span>
+		</div>
 	</div>
 </template>
 
@@ -26,7 +27,10 @@
 		methods: {
 			parseTweet(tweet) {
 				return utils.parseTweet(tweet);
-			}
+			},
+			gotoTweet(tweet) {
+				location.href = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
+			},
 		}
 	};
 </script>

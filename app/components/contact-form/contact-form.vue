@@ -91,7 +91,7 @@
 						"message": this.message
 					};
 
-			  		Api.post('/sendmessage',data).end(function(err,data){
+			  		Api.post('sendmessage',data).end(function(err,data){
 			  			if(err){
 			  				self.status = "Sorry, there was an error. Please try again later";
 			  			} else {
