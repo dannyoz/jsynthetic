@@ -20,9 +20,9 @@
 			}
 		},
 		ready() {
-			ApiService.request('discography').then((res) => {
-				this.albums = res.body;
-			});
+			// ApiService.request('discography').then((res) => {
+			// 	this.albums = res.body;
+			// });
 		},
 		methods: {
 			albumSrc(album) {

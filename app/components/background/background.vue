@@ -22,7 +22,7 @@
 				lineWidth: 0.3,
 			});
 			canvas.draw();
-			console.log(canvas);
+			// console.log(canvas);
 	  	},
 	};
 </script>

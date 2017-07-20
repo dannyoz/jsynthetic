@@ -1,3 +1,11 @@
 .twitter{
-	//@include centre;
+	
+	.tweet {
+		max-width: 15rem;
+		cursor: pointer;
+
+		img {
+			max-width: 100%;
+		}
+	}
 }

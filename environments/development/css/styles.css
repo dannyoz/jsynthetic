@@ -347,7 +347,7 @@ p.columns {
 .about {
   position: relative;
   width: 100%;
-  height: 100vh; }
+  min-height: 100vh; }
 
 .discography {
   position: relative;
@@ -366,9 +366,16 @@ p.columns {
       display: table;
       clear: both; }
   .discography iframe {
+    opacity: 0.8;
     border: 0;
     width: 350px;
     height: 470px; }
+
+.twitter .tweet {
+  max-width: 15rem;
+  cursor: pointer; }
+  .twitter .tweet img {
+    max-width: 100%; }
 
 .page-switcher {
   position: relative;
