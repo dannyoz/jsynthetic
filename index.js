@@ -1,6 +1,7 @@
-var express = require('express');
+const express = require('express');
 const js = express();
 const env = require('dotenv').config();
+const bodyParser = require('body-parser');
 
 const environment = process.env.NODE_ENV || 'development';
 const envPath     = __dirname+'/environments/'+environment+'/';
@@ -11,6 +12,7 @@ const staticDirs  = require(__dirname+'/express/routing').staticDirs;
 const err404      = require(__dirname+'/express/routing').err404;
 
 js.set('port', (process.env.PORT || 5000));
+js.use(bodyParser.json());
 
 routes.forEach(function (route){
   js.get(route.path,function(req,res){
@@ -41,5 +43,5 @@ if (environment === 'development') {
 js.use(err404);
 
 js.listen(js.get('port'), function() {
-  console.log('Jimmy app is running on port', js.get('port'));
+  console.log('Jimmy synthetic app is running on port', js.get('port'));
 });
