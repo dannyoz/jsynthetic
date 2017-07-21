@@ -64,7 +64,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 body {
   background-color: #000;
-  color: #3498DB;
+  color: #9bbed6;
   font-family: "neuropol-x-light",sans-serif;
   line-height: 28px;
   line-height: 1.75rem;
@@ -155,8 +155,38 @@ p.columns {
 
 .container {
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1200px;
   padding: 0 20px; }
+
+.masonry, .twitter {
+  margin: 1em 0;
+  -webkit-column-count: 0;
+  -webkit-column-gap: 1em;
+  -moz-column-count: 0;
+  -moz-column-gap: 1em;
+  column-count: 0;
+  column-gap: 1em; }
+  .masonry .masonry-item, .twitter .masonry-item, .twitter .tweet {
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px; }
+    .masonry .masonry-item img, .twitter .masonry-item img, .twitter .tweet img {
+      display: block;
+      width: 100%; }
+
+@media (min-width: 300px) {
+  .masonry, .twitter {
+    column-count: 1; } }
+
+@media (min-width: 600px) {
+  .masonry, .twitter {
+    column-count: 2; } }
+
+@media (min-width: 900px) {
+  .masonry, .twitter {
+    column-count: 3; } }
 
 .slide-up, .logo .synthetic__s, .logo .synthetic__n, .logo .synthetic__h, .logo .synthetic__tt, .logo .synthetic__i {
   animation-name: slide-up;
@@ -371,11 +401,13 @@ p.columns {
     width: 350px;
     height: 470px; }
 
-.twitter .tweet {
-  max-width: 15rem;
-  cursor: pointer; }
-  .twitter .tweet img {
-    max-width: 100%; }
+.twitter .tweet img {
+  max-width: 100%; }
+
+.twitter .tweet__content {
+  background: rgba(33, 118, 175, 0.34);
+  cursor: pointer;
+  padding: 1rem; }
 
 .page-switcher {
   position: relative;

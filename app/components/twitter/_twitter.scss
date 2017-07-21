@@ -1,11 +1,18 @@
 .twitter{
-	
+	@extend .masonry;
+
 	.tweet {
-		max-width: 15rem;
-		cursor: pointer;
+		@extend .masonry-item;
 
 		img {
 			max-width: 100%;
 		}
+
+		&__content {
+			background: rgba(33, 118, 175, 0.34);
+			cursor: pointer;
+			padding: 1rem;
+		}
 	}
+
 }

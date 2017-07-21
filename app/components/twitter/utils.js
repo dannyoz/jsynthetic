@@ -27,7 +27,7 @@ export default {
 			});
 		}
 
-		html = `<span class="tweet__content">${html}</span>`;
+		html = `<div class="tweet__content">${html}</div>`;
 
 		console.log(html);
 

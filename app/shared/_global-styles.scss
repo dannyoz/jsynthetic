@@ -11,7 +11,7 @@ $secondary: $col-amethyst;
 
 body {
 	background-color:#000;
-	color:$primary;
+	color:#9bbed6;
 	font-family: "neuropol-x-light",sans-serif;
 	@include verticalRhythm;
 }
@@ -33,4 +33,5 @@ p.columns{
 	@include centre;
 }
 
-@include containerClass(1280px);
+@include containerClass(1200px);
+@include masonryColumns(300px,4,0);
