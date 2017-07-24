@@ -13,7 +13,7 @@ body {
 	background-color:#000;
 	color:#9bbed6;
 	font-family: "neuropol-x-light",sans-serif;
-	@include verticalRhythm;
+	@include verticalRhythm(14px, 24px);
 }
 
 h1, h2, h3, h4, h5, h6 {

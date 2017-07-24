@@ -18,7 +18,7 @@ routes[`${constants.apiVersion}sendmessage`] = function(req,res){
 
 	var mailOptions = {
 	    from: name+' ('+email+')',
-	    to: 'danosborne@rocketmail.com',
+	    to: process.env.EMAIL_TO,
 	    subject: 'Message from Jimmy synthetic website',
 	    text: name+' ('+email+') sent the following message on the Jimmy Synthetic website: ' +message,
 	    html: '<p><b>' + name+' ('+email+')</b></p><p>Sent the following message on the Jimmy Synthetic website:</p><p>' +message + '</p>'
