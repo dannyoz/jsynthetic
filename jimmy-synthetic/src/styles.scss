@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/spice-sass/src/spice";
+@include normalise();
+@include flexGrid();
+@include googleFont('quicksand',h1 h2 h3 h4 h5 h6,400);
+@include googleFont('roboto',body textarea button);
