@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../../service/app.service';
 
 @Component({
   selector: 'app-logo',
   templateUrl: './logo.component.html',
-  styleUrls: ['./logo.component.scss']
+  styleUrls: ['./logo.component.scss'],
+  providers: [AppService]
 })
 export class LogoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: AppService) { }
 
   ngOnInit() {
+    this.service.getTweets();
   }
 
 }
