@@ -12,7 +12,9 @@ export class LogoComponent implements OnInit {
   constructor(private service: AppService) { }
 
   ngOnInit() {
-    this.service.getTweets();
+    this.service.getTweets().subscribe((data) => {
+      console.log(data);
+    });
   }
 
 }

@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm-run-all -p start-app start-api",
-    "start-app": "ng serve jimmy-synthetic —-proxy-config proxy.conf.json",
-    "start-api": "node index",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -27,6 +25,7 @@
     "core-js": "^2.5.4",
     "dotenv": "4.0.0",
     "express": "4.13.3",
+    "instagram-web-api": "^2.0.0",
     "ng-node-environment": "^1.0.9",
     "nodemailer": "^4.6.8",
     "npm-run-all": "^4.1.3",
